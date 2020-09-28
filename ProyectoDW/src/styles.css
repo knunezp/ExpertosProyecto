@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+.content-section {
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.about-section {
+    background: url("src/assets/img/img1.jpg") no-repeat center center scroll;
+    background-color: white;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.download-section {
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.contact-section {
+    background: url("src/assets/img/img2.jpg") no-repeat center center scroll;
+    background-color: white;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

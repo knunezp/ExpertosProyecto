@@ -1,32 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
-
-.content-section {
-    padding-top: 150px;
-    padding-bottom: 150px;
+.bgBlueNavbar {
+    /*background: #085078;
+    /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to bottom, #85D8CE, #085078);
+    /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to bottom, #85D8CE, #085078);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /*background: #1FA2FF;
+    /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to bottom, #A6FFCB, #12D8FA, #1FA2FF);
+    /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to bottom, #A6FFCB, #12D8FA, #1FA2FF);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #1A2980;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #26D0CE, #1A2980);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #26D0CE, #1A2980);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.about-section {
-    background: url("src/assets/img/img1.jpg") no-repeat center center scroll;
-    background-color: white;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.download-section {
-    background-color: black;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.contact-section {
-    background: url("src/assets/img/img2.jpg") no-repeat center center scroll;
-    background-color: white;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.bgColorAviso {
+    background: #085078;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #85D8CE, #085078);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #85D8CE, #085078);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

@@ -4,11 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  {
-    path:"inicio",loadChildren:()=>
-    import("./componentes/inicio/inicio.module").then(m=>m.InicioModule)
+   {
+    path: 'landingPage', loadChildren: () =>
+    import('./componentes/landing-page/landing-page.module').then(m => m.LandingPageModule)
   },
-  {path:"",pathMatch:"full",redirectTo:"inicio"}
+  {
+    path: 'inicio', loadChildren: () =>
+    import('./componentes/inicio/inicio.module').then(m => m.InicioModule)
+  },
+  {path: '', pathMatch: 'full', redirectTo: 'landingPage'}
 ];
 
 @NgModule({

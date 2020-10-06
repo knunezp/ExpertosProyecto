@@ -1,14 +1,14 @@
+import { PerfilUsuarioComponent } from './perfil-usuario.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { InicioComponent } from './inicio.component';
 
 
 const routes: Routes = [
-  { path:"", component: InicioComponent},
+  { path:"", component: PerfilUsuarioComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class InicioRoutingModule { }
+export class PerfilUsuarioRoutingModule { }

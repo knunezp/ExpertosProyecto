@@ -27,3 +27,16 @@
     background: linear-gradient(to bottom, #85D8CE, #085078);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+.letra1{
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+}
+.letra2{
+    font-family: 'Bigshot One', cursive;
+    font-size: 1.5rem;
+}
+.letra3{
+    font-family: 'Rum Raisin', sans-serif;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,48 @@
+<!-- Modal Login-->
+<div class="animated fadeIn modal fade mt-5 py-5" id="loginModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="container bgBlueNavbar text-center">
+                <img src="../../../assets/img/LOGOph.png" class="rounded-circle mt-3" alt="MKDW" style="height: 100px;weight:100px">
+                <h1 class="text-center mt-3 mb-3" style="color: #FFF;">Inicio seción</h1>
+
+            </div>
+            <div class="container">
+                <div class="modal-body text-center colorName3">
+                    <div class="mt-5">
+                        <form (ngSubmit)="login(forma)" #forma="ngForm" class="m-3">
+                            <div class="form-group">
+                                <label class="sr-only">Usuario</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                                    </div>
+                                    <input autocomplete="off" id="focusLogin" type="text" class="form-control backInput17" [(ngModel)]="usuarioLogin.nombre" name="nombre" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Usuario</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-unlock-alt" aria-hidden="true"></i></div>
+                                    </div>
+                                    <input autocomplete="off" type="text" class="form-control" [(ngModel)]="usuarioLogin.password" name="password" required>
+                                </div>
+                            </div>
+                            <div class="text-center mt-5">
+                                <div class="row">
+                                    <div class="col">
+                                        <input (click)="salirLogin()" type="button" value="Cerrar" class="btn  btn-secondary btn-block rounded-0 py-2">
+                                    </div>
+                                    <div class="col">
+                                        <input type="submit" value="Entrar" class="btn btn-info btn-block rounded-0 py-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

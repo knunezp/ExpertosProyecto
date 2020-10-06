@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-modulos-lp',
-  templateUrl: './modulos-lp.component.html',
+  selector: 'app-planes',
+  templateUrl: './planes.component.html',
   styles: []
 })
-export class ModulosLPComponent implements OnInit {
+export class PlanesComponent implements OnInit {
 
   constructor() { }
 

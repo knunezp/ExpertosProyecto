@@ -28,15 +28,24 @@
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.letra1{
+.letra1 {
     font-family: 'Anton', sans-serif;
     font-size: 1.5rem;
 }
-.letra2{
+
+.letra2 {
     font-family: 'Bigshot One', cursive;
     font-size: 1.5rem;
 }
-.letra3{
+
+.letra3 {
     font-family: 'Rum Raisin', sans-serif;
     font-size: 1.5rem;
+}
+
+.inputPerfil {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px;
 }

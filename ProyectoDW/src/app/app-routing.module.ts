@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PerfilUsuarioComponent } from './componentes/perfil-usuario/perfil-usuario.component';
+import { PerfilUsuarioModule } from './componentes/perfil-usuario/perfil-usuario.module';
 
 const routes: Routes = [
 
@@ -18,7 +18,11 @@ const routes: Routes = [
   },
   {
     path: 'perfilUsuario', loadChildren: () =>
-    import('./componentes/perfil-usuario/perfil-usuario.module').then(m => PerfilUsuarioComponent)
+    import('./componentes/perfil-usuario/perfil-usuario.module').then(m => m.PerfilUsuarioModule)
+  },
+  {
+    path: 'pago', loadChildren: () =>
+    import('./componentes/pago/pago.module').then(m => m.PagoModule)
   },
   {path: '', pathMatch: 'full', redirectTo: 'inicio'}
 

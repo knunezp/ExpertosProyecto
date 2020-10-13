@@ -7,9 +7,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ModalsComponent } from './shared/modals/modals.component';
-import { CrearUsuarioComponent } from './componentes/crear-usuario/crear-usuario.component';
-import { PerfilUsuarioComponent } from './componentes/perfil-usuario/perfil-usuario.component';
-
 
 import { FormsModule } from '@angular/forms';
 
@@ -18,9 +15,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    ModalsComponent,
-    CrearUsuarioComponent,
-    PerfilUsuarioComponent,
+    ModalsComponent
   ],
   imports: [
     BrowserModule,

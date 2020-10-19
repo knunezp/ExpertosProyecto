@@ -1,29 +1,55 @@
-<!--Navbar landing page-->
-<div class="container-fluid fixed-top bgBlueNavbar mb-5">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light bgBlueNavbar">
-        <a class="navbar-brand" style="color: #fff; ">MKDW</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+<!--Navbar landing page sin login-->
+<div *ngIf="!login" class=" container-fluid fixed-top bgBlueNavbar mb-5 ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bgBlueNavbar ">
+        <a class="navbar-brand " style="color: #fff; ">MKDW</a>
+        <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+            <span class="navbar-toggler-icon "></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent ">
+            <ul class="navbar-nav mr-auto ">
             </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link  mr-1 rounded font-weight-bold" [routerLink]="['/']" style="color: #fff; ">Inicio</a>
+            <ul class="navbar-nav ">
+                <li class="nav-item active ">
+                    <a href="inicio#uno" class=" nav-link mr-1 rounded font-weight-bold " style=" color: #fff; ">Inicio</a>
                 </li>
                 <li class="nav-item ">
-                    <a (click)="abrirLogin()" class="nav-link  mr-1 rounded font-weight-bold" style="color: #fff;"><i class="fa fa-sign-in mr-1" aria-hidden="true"></i>Login</a>
+                    <a href="inicio#dos" class="nav-link mr-1 rounded font-weight-bold " style="color: #fff; ">Conocenos</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link rounded font-weight-bold" [routerLink]="['/crearUsuario']" style="color: #fff;"><i class="fa fa-user-o mr-1" aria-hidden="true"></i>Crear usuario</a>
+                    <a href="inicio#tres" class=" nav-link rounded font-weight-bold " style="color: #fff; ">Unete</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!--Navbar landing page login-->
+<div *ngIf="login " class="container-fluid fixed-top bgBlueNavbar mb-5 ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bgBlueNavbar ">
+        <a class="navbar-brand " style="color: #fff; ">MKDW</a>
+        <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+          <span class="navbar-toggler-icon "></span>
+      </button>
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent ">
+            <ul class="navbar-nav mr-auto ">
+            </ul>
+            <ul class="navbar-nav ">
+                <li class="nav-item active ">
+                    <a class="nav-link mr-1 rounded font-weight-bold " [routerLink]="[ '/'] " style="color: #fff; ">Inicio</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link rounded font-weight-bold" [routerLink]="['/planes']" style="color: #fff;"><i class="fa fa-address-card-o mr-1" aria-hidden="true"></i>Planes</a>
+                    <a (click)="abrirLogin()" href="#" class="nav-link mr-1 rounded font-weight-bold " style="color: #fff; "><i class="fa fa-sign-in mr-1 " aria-hidden="true "></i>Login</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link rounded font-weight-bold" [routerLink]="['/perfilUsuario']" style="color: #fff;"><i class="fa fa-address-card-o mr-1" aria-hidden="true"></i>Perfil</a>
+                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/crearUsuario'] " style="color: #fff; "><i class="fa fa-user-o mr-1 " aria-hidden="true "></i>Crear usuario</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/planes'] " style="color: #fff; "><i class="fa fa-address-card-o mr-1 " aria-hidden="true "></i>Planes</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/perfilUsuario'] " style="color: #fff; "><i class="fa fa-address-card-o mr-1 " aria-hidden="true "></i>Perfil</a>
                 </li>
             </ul>
         </div>

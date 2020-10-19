@@ -5,17 +5,18 @@ declare let $: any;
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styles: []
+  styles: [],
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+  login = false;
 
-  abrirLogin(){
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  abrirLogin() {
     $('#loginModal').modal('show');
   }
-
 }

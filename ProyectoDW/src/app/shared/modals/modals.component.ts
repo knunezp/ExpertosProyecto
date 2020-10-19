@@ -46,7 +46,7 @@ export class ModalsComponent implements OnInit {
 
     Toast.fire({
       title: this.usuarioLogin.nombre + ' ONLINE',
-      background:'rgb(233,233,0)',
+      //background:'rgb(233,233,0)',
       icon: 'success'
     });
     this.salirLogin();

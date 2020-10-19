@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './inicio.component';
 
+// tslint:disable-next-line:prefer-const
+
 @NgModule({
   declarations: [InicioComponent],
   imports: [
@@ -11,4 +13,4 @@ import { InicioComponent } from './inicio.component';
     InicioRoutingModule
   ]
 })
-export class InicioModule { }
+export class InicioModule {}

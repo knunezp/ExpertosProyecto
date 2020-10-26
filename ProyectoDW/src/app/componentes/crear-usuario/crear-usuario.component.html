@@ -2,7 +2,7 @@
     <div class="row ">
         <div class="col-1 col-sm-3 col-md-4 col-lg-4"></div>
         <div class="col-10 col-sm-6 col-md-4 col-lg-4 text-center">
-            <form class="mt-5 border border-primary alert alert-primary bgColorAviso">
+            <form (ngSubmit)="nuevoUsuario(f)" #f="ngForm" class="mt-5 border border-primary alert alert-primary bgColorAviso">
                 <b class="text-primary text-uppercase">Crear Nuevo usuario</b>
                 <div class="mt-3 alert alert-primary ">
                     <h5>Datos personales</h5>
@@ -13,7 +13,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-user-o" aria-hidden="true"></i></div>
                         </div>
-                        <input autocomplete="off" id="focusLogin" type="text" class="form-control" name="nombre" required placeholder="Nombre">
+                        <input [(ngModel)]='usuario.nombres' type="text" class="form-control" name="nombre" required placeholder="Nombre">
                     </div>
                 </div>
                 <div class="form-group">
@@ -22,7 +22,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-user-o" aria-hidden="true"></i></div>
                         </div>
-                        <input autocomplete="off" id="" type="text" class="form-control" name="apellido" required placeholder="Apellidos">
+                        <input [(ngModel)]='usuario.apellidos' type="text" class="form-control" name="apellido" required placeholder="Apellidos">
                     </div>
                 </div>
                 <div class="form-group">
@@ -31,58 +31,71 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                         </div>
-                        <input autocomplete="off" id="" type="text" class="form-control" name="correo" required placeholder="Correo">
+                        <input [(ngModel)]='usuario.correo' type="emaill" class="form-control" name="correo" required placeholder="Correo">
                     </div>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">Contraseña</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                        </div>
+                        <input [(ngModel)]='usuario.contrasenia' type="password" class="form-control" name="contrasenia" required placeholder="Contraseña">
+                    </div>
+                </div>
+
+                <div class="form-check form-check-inline ">
+                    <label class="form-check-label" for="inlineRadio1"><input (click)="ocultarEmpresa()" class="form-check-input" type="radio" name="inlineRadioOptions " id="inlineRadio1 " value="option1 "> Comprador
+                    </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">Comprador</label>
+                    <label class="form-check-label " for="inlineRadio2"><input (click)="mostraEmpresa() " class="form-check-input " type="radio" name="inlineRadioOptions " id="inlineRadio2 " value="option2 "> Empresa o comerciante individual</label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">Empresa o comerciante individual</label>
-                </div>
-                <div class="form-group">
-                    <div class="mt-3 alert alert-primary ">
-                        <h5>Datos empresa</h5>
-                    </div>
-                    <label class="sr-only">Nombre Empresa</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-address-card-o" aria-hidden="true"></i></div>
+                <div *ngIf="usuarioEmpresa ">
+                    <div class="form-group ">
+                        <div class="mt-3 alert alert-primary ">
+                            <h5>Datos empresa</h5>
                         </div>
-                        <input autocomplete="off" id="" type="text" class="form-control" name="correo" required placeholder="Nombre empresa">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="sr-only">Telefono:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                        <label class="sr-only ">Nombre Empresa</label>
+                        <div class="input-group ">
+                            <div class="input-group-prepend ">
+                                <div class="input-group-text "><i class="fa fa-address-card-o " aria-hidden="true "></i></div>
+                            </div>
+
+                            <input [(ngModel)]='usuario.nombreEmpresa' type="text" class="form-control " name="correo " required placeholder="Nombre empresa ">
                         </div>
-                        <input autocomplete="off" id="" type="number" class="form-control" name="correo" required placeholder="Telefono empresa">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="sr-only">RTN:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-id-card-o" aria-hidden="true"></i></div>
+                    <div class="form-group ">
+                        <label class="sr-only ">Telefono:</label>
+                        <div class="input-group ">
+                            <div class="input-group-prepend ">
+                                <div class="input-group-text "><i class="fa fa-phone " aria-hidden="true "></i></div>
+                            </div>
+                            <input [(ngModel)]='usuario.telefonoE' type="number" class="form-control " name="correo " required placeholder="Telefono empresa ">
                         </div>
-                        <input autocomplete="off" id="" type="number" class="form-control" name="rtn" required placeholder="RTN empresa">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="sr-only">Empresa:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                    <div class="form-group ">
+                        <label class="sr-only ">RTN:</label>
+                        <div class="input-group ">
+                            <div class="input-group-prepend ">
+                                <div class="input-group-text "><i class="fa fa-id-card-o " aria-hidden="true "></i></div>
+                            </div>
+                            <input [(ngModel)]='usuario.rtn' type="number" class="form-control " name="rtn " required placeholder="RTN empresa ">
                         </div>
-                        <input autocomplete="off" id="" type="number" class="form-control" name="rtn" required placeholder="Direccion empresa">
                     </div>
+                    <div class="form-group ">
+                        <label class="sr-only ">Empresa:</label>
+                        <div class="input-group ">
+                            <div class="input-group-prepend ">
+                                <div class="input-group-text "><i class="fa fa-map-marker " aria-hidden="true "></i></div>
+                            </div>
+                            <input [(ngModel)]='usuario.direccionE' type="text" class="form-control " name="rtn " required placeholder="Direccion empresa ">
+                        </div>
+                    </div>
+
                 </div>
-                <div class="mb-5">
-                    <button class="btn btn-primary mb-3" style="float:right">Guardar</button>
+                <div class="mb-5 ">
+                    <input type="submit" value="Guardar" class="btn btn-primary mb-3" style="float:right">
                 </div>
             </form>
         </div>

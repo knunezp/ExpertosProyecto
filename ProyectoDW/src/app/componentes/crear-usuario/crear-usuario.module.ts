@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CrearUsuarioRoutingModule } from './crear-usuario-routing.module';
+import { CrearUsuarioComponent } from './crear-usuario.component';
 
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [],
+  declarations: [CrearUsuarioComponent],
   imports: [
     CommonModule,
-    CrearUsuarioRoutingModule
+    CrearUsuarioRoutingModule,
+    FormsModule
   ]
 })
 export class CrearUsuarioModule { }

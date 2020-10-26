@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from '../../servicios/modal.service';
+
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import Swal from 'sweetalert2';
+
 declare let $: any;
 
 @Component({
@@ -16,7 +20,10 @@ export class ModalsComponent implements OnInit {
     password:"123"
   };
 
-  constructor() { }
+  constructor(public modalService: ModalService,
+    private router: Router) {
+    this.modalService.online = false;
+  }
 
   ngOnInit(): void {
   }
@@ -33,6 +40,7 @@ export class ModalsComponent implements OnInit {
   login(forma: NgForm){
     console.log(forma.value);
     if (this.usuarioLogin.nombre=='Meli' && this.usuarioLogin.password=='123') {
+
     setTimeout(() => {
       $('#navbar-collapse').collapse('hide');
     }, 1000);
@@ -51,7 +59,9 @@ export class ModalsComponent implements OnInit {
     });
     this.salirLogin();
     this.limpiarUsuario();
-    //this.modalService.online = true;
+    this.modalService.online = true;
+    this.router.navigateByUrl('principal');
+      console.log('entro: ',this.modalService.online);
     } else {
       const Toast = Swal.mixin({
         toast: true,

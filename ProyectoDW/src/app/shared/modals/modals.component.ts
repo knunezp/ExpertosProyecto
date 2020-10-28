@@ -4,7 +4,7 @@ import { ModalService } from '../../servicios/modal.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import Swal from 'sweetalert2';
+//import Swal from 'sweetalert2';
 
 declare let $: any;
 
@@ -44,7 +44,7 @@ export class ModalsComponent implements OnInit {
     setTimeout(() => {
       $('#navbar-collapse').collapse('hide');
     }, 1000);
-    const Toast = Swal.mixin({
+    /*const Toast = Swal.mixin({
       toast: true,
       position: 'top',
       showConfirmButton: false,
@@ -56,14 +56,14 @@ export class ModalsComponent implements OnInit {
       title: this.usuarioLogin.nombre + ' ONLINE',
       //background:'rgb(233,233,0)',
       icon: 'success'
-    });
+    });*/
     this.salirLogin();
     this.limpiarUsuario();
     this.modalService.online = true;
     this.router.navigateByUrl('principal');
       console.log('entro: ',this.modalService.online);
     } else {
-      const Toast = Swal.mixin({
+      /*const Toast = Swal.mixin({
         toast: true,
         position: 'center',
         showConfirmButton: false,
@@ -75,7 +75,7 @@ export class ModalsComponent implements OnInit {
         title: 'DATOS INVALIDOS',
         background:'rgb(233,233,0)',
         icon: 'error'
-      });
+      });*/
       $('#navbar-collapse').collapse('hide');
       this.salirLogin();
       this.limpiarUsuario();

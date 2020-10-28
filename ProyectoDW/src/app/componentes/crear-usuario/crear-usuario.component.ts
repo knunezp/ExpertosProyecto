@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import Swal from 'sweetalert2';
+//import Swal from 'sweetalert2';
 declare let $: any;
 
 
@@ -49,7 +49,7 @@ export class CrearUsuarioComponent implements OnInit {
   nuevoUsuario(f: NgForm) {
     if (f.invalid) {
       console.log(f.value);
-      const Toast = Swal.mixin({
+      /*const Toast = Swal.mixin({
         toast: true,
         position: 'center',
         showConfirmButton: false,
@@ -61,11 +61,11 @@ export class CrearUsuarioComponent implements OnInit {
         title: 'Todos los campos son obligatorios',
         //background:'rgb(233,233,0)',
         icon: 'error'
-      });
+      });*/
     } else {
       $('#contacto').modal('hide');
       console.log(f.value);
-      const Toast = Swal.mixin({
+      /*const Toast = Swal.mixin({
         toast: true,
         position: 'center',
         showConfirmButton: false,
@@ -77,7 +77,7 @@ export class CrearUsuarioComponent implements OnInit {
         title: 'Registro Exitoso',
         //background:'rgb(233,233,0)',
         icon: 'success'
-      });
+      });*/
     }
   }
 

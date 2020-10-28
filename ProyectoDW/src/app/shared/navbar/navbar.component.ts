@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalService } from '../../servicios/modal.service';
 
-import Swal from 'sweetalert2';
+//import Swal from 'sweetalert2';
 declare let $: any;
 @Component({
   selector: 'app-navbar',
@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
   logOut(){
     this.cerrarNavbar();
     this.modalService.logOut();
-    const Toast = Swal.mixin({
+    /*const Toast = Swal.mixin({
       toast: true,
       position: 'center',
       showConfirmButton: false,
@@ -43,6 +43,6 @@ export class NavbarComponent implements OnInit {
       title: 'OUTLINE',
       //background:'rgb(233,233,0)',
       icon: 'success'
-    });
+    });*/
   }
 }

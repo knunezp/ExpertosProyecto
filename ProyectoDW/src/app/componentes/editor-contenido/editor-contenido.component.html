@@ -1,1 +1,26 @@
-<p>editor-contenido works!</p>
+<!--div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-12 col-md-8 mb-5 text-center">
+            <h3 class="">Editor de contenido</h3>
+            <ckeditor [(ngModel)]="ckeditorContent"></ckeditor>
+        </div>
+        <div class="col-12 col-md-3 mt-5">
+            <h3>Resultado</h3>
+            {{ckeditorContent}}
+        </div>
+    </div>
+  </div-->
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-12 col-md-7 mb-5 text-center">
+            <h3 class="">Editor de contenido 2</h3>
+            <ckeditor [(ngModel)]="ckeditorContent" [(config)]="editorConfig" (ready)="onReady()" (change)="onChange()" (focus)="onFocus()" (blur)="onBlur()">
+            </ckeditor>
+        </div>
+        <div class="col-12 col-md-3 mt-5">
+            <h3>Resultado</h3>
+            {{ckeditorContent}}
+        </div>
+    </div>
+</div>

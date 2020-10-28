@@ -8,7 +8,10 @@ export class ModalService {
 
   privacidad: boolean;
   privacidadSeleccionada: boolean;
+
+  onlineAdmin:boolean;
   online: boolean;
+  ofline:boolean;
 
   constructor() { }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from '../../servicios/modal.service';
 
 declare let $: any;
 @Component({
@@ -8,7 +9,10 @@ declare let $: any;
 })
 export class InicioComponent implements OnInit {
 
-  constructor() { }
+  constructor(public modalService: ModalService) {
+    this.modalService.ofline=true;
+    this.modalService.onlineAdmin=false;
+   }
 
   ngOnInit(): void {
     window.scrollTo(0,0);

@@ -3,10 +3,9 @@ ng-sidebar-container {
 }
 
 ::ng-deep .ng-sidebar {
-    background-color: #f4f4f4;
-    width: 300px;
     padding: 2em 3em;
-    box-shadow: 0 0 2.5em rgba(85, 85, 85, 0.585, 85, 85, 0.5);
+    box-shadow: 0 0 2.5em rgba(85, 85, 85, 0.5);
+    background: #1A2980;
 }
 
 .menu {
@@ -21,4 +20,13 @@ ng-sidebar-container {
 .menu li a {
     display: block;
     width: 100%;
+}
+
+.menuH {
+    background: #26D0CE;
+}
+
+.btnMenu {
+    background: #1A2980;
+    color: #fff;
 }

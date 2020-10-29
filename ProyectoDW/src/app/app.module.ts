@@ -10,6 +10,7 @@ import { ModalsComponent } from './shared/modals/modals.component';
 
 import { CKEditorModule } from 'ng2-ckeditor';
 import { FormsModule } from '@angular/forms';
+import {SidebarModule} from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

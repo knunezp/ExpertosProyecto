@@ -1,31 +1,42 @@
 <!--Menu Horizontal-->
-<nav class="navbar menuH">
-    <i aria-hidden="true" (click)="toggleSidebar()" class="fa fa-bars btnMenu mr-auto border border-info rounded-pill" style="padding: 10px;"></i>
-
-    <form class="form-inline  m-2">
-        <div class="dropdown">
-
-            <button class="btn btnMenu dropdown-toggle rounded-pill" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="rounded-pill mr-2" src="../../../assets/user/user.png" width="30" height="30">Karen Nunez
+<div class="col-12 col-sm-12 col-md-12">
+    <nav class="navbar menuH ">
+        <i aria-hidden="true " (click)="toggleSidebar() " class="fa fa-bars btnMenu mr-auto border border-info rounded-pill " style="padding: 10px;"></i>
+        <form class="form-inline m-2 ">
+            <div class="dropdown">
+                <button class="btn btnMenu dropdown-toggle rounded-pill " type="button " id="dropdownMenu2 " data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
+              <img class="rounded-pill mr-2 " src="../../../assets/user/user.png " width="30 " height="30 ">Karen Nunez
       </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">Perfil</button>
-                <button class="dropdown-item" type="button">Configuracion</button>
+                <div class="dropdown-menu " aria-labelledby="dropdownMenu2 ">
+                    <button class="dropdown-item " type="button ">Perfil</button>
+                    <button class="dropdown-item " type="button ">Configuracion</button>
+                </div>
             </div>
-        </div>
-    </form>
-</nav>
-
-
+        </form>
+    </nav>
+</div>
 <!--Fin Menu Horizontal-->
 <!--Menu Vertical-->
-<ng-sidebar-container>
-    <ng-sidebar [opened]="opened">
-        <ul class="menu">
-            <li><a href="">Inicio</a></li>
-            <li><a href="">Planes</a></li>
-            <li><a href="">Plantillas</a>
-            </li>
-        </ul>
-    </ng-sidebar>
-</ng-sidebar-container>
+<!--div class="col-10 col-sm-4 col-md-4">
+    <ng-sidebar-container>
+        <ng-sidebar [opened]="opened ">
+            <ul class="menu nav flex-column ">
+                <li class="nav-item " routerLinkActive="active ">
+                    <a class="nav-link active text-light " [routerLink]="[ '/admin'] ">Inicio</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-light " [routerLink]="[ '/admin'] ">Pagos</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-light " [routerLink]="[ '/admin'] ">Usuarios</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-light " [routerLink]="[ '/admin'] ">Planes</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-light " [routerLink]="[ '/admin'] ">Plantillas</a>
+                </li>
+            </ul>
+        </ng-sidebar>
+    </ng-sidebar-container>
+</div-->

@@ -35,18 +35,18 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto ">
             </ul>
-            <ul class="navbar-nav" routerLinkActive="active">
-                <li class="nav-item ">
-                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/principal'] " style="color: #fff; "><i class="fa fa-user-o mr-1 " aria-hidden="true "></i>Principal</a>
+            <ul class="navbar-nav">
+                <li class="nav-item " routerLinkActive="active">
+                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/principal']" style="color: #fff; "><i class="fa fa-user-o mr-1 " aria-hidden="true "></i>Principal</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/principal'] " style="color: #fff; "><i class="fa fa-user-o mr-1 " aria-hidden="true "></i>Ver paginas</a>
+                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/principal']" style="color: #fff; "><i class="fa fa-user-o mr-1 " aria-hidden="true "></i>Ver paginas</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/planes'] " style="color: #fff; "><i class="fa fa-address-card-o mr-1 " aria-hidden="true "></i>Planes</a>
+                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/planes']" style="color: #fff; "><i class="fa fa-address-card-o mr-1 " aria-hidden="true "></i>Planes</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/perfilUsuario'] " style="color: #fff; "><i class="fa fa-address-card-o mr-1 " aria-hidden="true "></i>Perfil</a>
+                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/perfilUsuario']" style="color: #fff; "><i class="fa fa-address-card-o mr-1 " aria-hidden="true "></i>Perfil</a>
                 </li>
             </ul>
         </div>
@@ -54,7 +54,7 @@
 </div>
 
 <!--Navbar ADMIN-->
-<div *ngIf="modalService.onlineAdmin " class="container-fluid fixed-top bgBlueNavbar mb-5 ">
+<!--div *ngIf="modalService.onlineAdmin " class="container-fluid fixed-top bgBlueNavbar mb-5 ">
     <nav class="navbar navbar-expand-lg navbar-light bg-light bgBlueNavbar ">
         <a class="navbar-brand " style="color: #fff; ">MKDW</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,6 +71,6 @@
             </ul>
         </div>
     </nav>
-</div>
+</div-->
 
 <app-modals></app-modals>

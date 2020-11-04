@@ -1,7 +1,7 @@
 <div class="econtainer-fluid mt-5">
     <div class="row ">
-        <div class="col-1 col-sm-3 col-md-4 col-lg-4"></div>
-        <div class="col-10 col-sm-6 col-md-4 col-lg-4 text-center">
+        <div class="col-1 col-sm-3 col-md-3 col-lg-4"></div>
+        <div class="col-10 col-sm-6 col-md-6 col-lg-4 text-center">
             <form (ngSubmit)="nuevoUsuario(f)" #f="ngForm" class="mt-5 border border-primary alert alert-primary bgColorAviso">
                 <b class="text-primary text-uppercase">Crear Nuevo usuario</b>
                 <div class="mt-3 alert alert-primary ">
@@ -13,7 +13,13 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-user-o" aria-hidden="true"></i></div>
                         </div>
-                        <input [(ngModel)]='usuario.nombres' type="text" class="form-control" name="nombre" required placeholder="Nombre">
+                        <input [(ngModel)]='usuario.nombres' type="text" class="form-control" name="nombre" required placeholder="Nombre" #nombre="ngModel">
+                    </div>
+                    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+
+                        <div *ngIf="nombre.errors.required" style="padding: 0px;">
+                            Nombre requirido.
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -22,7 +28,12 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-user-o" aria-hidden="true"></i></div>
                         </div>
-                        <input [(ngModel)]='usuario.apellidos' type="text" class="form-control" name="apellido" required placeholder="Apellidos">
+                        <input [(ngModel)]='usuario.apellidos' type="text" class="form-control" name="apellido" required placeholder="Apellidos" #apellidos="ngModel">
+                    </div>
+                    <div *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)" class="alert alert-danger">
+                        <div *ngIf="apellidos.errors.required" style="padding: 0px;">
+                            Apellido requirido.
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -31,25 +42,43 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                         </div>
-                        <input [(ngModel)]='usuario.correo' type="emaill" class="form-control" name="correo" required placeholder="Correo">
+                        <input [(ngModel)]='usuario.correo' type="email" class="form-control " name="correo" required placeholder="Correo " #correo="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" email>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="sr-only">Contraseña</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                    <div *ngIf=" (correo.invalid && (correo.dirty || correo.touched)) " class="alert alert-danger ">
+                        <div *ngIf="correo.errors.required " style="padding: 0px; ">
+                            Correo requirido.
                         </div>
-                        <input [(ngModel)]='usuario.contrasenia' type="password" class="form-control" name="contrasenia" required placeholder="Contraseña">
+                        <div *ngIf="correo.errors.pattern" style="padding: 0px; ">
+                            Correo no valido.
+                            <br>name@gmail.com
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group ">
+                    <label class="sr-only ">Contraseña</label>
+                    <div class="input-group ">
+                        <div class="input-group-prepend ">
+                            <div class="input-group-text "><i class="fa fa-lock " aria-hidden="true "></i></div>
+                        </div>
+                        <input [(ngModel)]='usuario.contrasenia' type="password" class="form-control " name="contrasenia " required placeholder="Contraseña " #contrasenia="ngModel" minlength="8" maxlength="20">
+                    </div>
+                    <div *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched) " class="alert alert-danger ">
+
+                        <div *ngIf="contrasenia.errors.required ">
+                            Contraseña requirido.
+                        </div>
+                        <div *ngIf="contrasenia.errors.minlength ">
+                            La contraseña debe contener minimo 8 caracteres.Maximo 20 caracteres.
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-check form-check-inline ">
-                    <label class="form-check-label" for="inlineRadio1"><input (click)="ocultarEmpresa()" class="form-check-input" type="radio" name="inlineRadioOptions " id="inlineRadio1 " value="option1 "> Comprador
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="inlineRadio1"><input (click)="ocultarEmpresa()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Comprador
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <label class="form-check-label " for="inlineRadio2"><input (click)="mostraEmpresa() " class="form-check-input " type="radio" name="inlineRadioOptions " id="inlineRadio2 " value="option2 "> Empresa o comerciante individual</label>
+                    <label class="form-check-label" for="inlineRadio2"><input (click)="mostraEmpresa()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Empresa o comerciante individual</label>
                 </div>
                 <div *ngIf="usuarioEmpresa ">
                     <div class="form-group ">
@@ -71,7 +100,7 @@
                             <div class="input-group-prepend ">
                                 <div class="input-group-text "><i class="fa fa-phone " aria-hidden="true "></i></div>
                             </div>
-                            <input [(ngModel)]='usuario.telefonoE' type="number" class="form-control " name="correo " required placeholder="Telefono empresa ">
+                            <input [(ngModel)]='usuario.telefonoE' type="number" class="form-control " name="telefono " required placeholder="Telefono empresa ">
                         </div>
                     </div>
                     <div class="form-group ">
@@ -92,10 +121,12 @@
                             <input [(ngModel)]='usuario.direccionE' type="text" class="form-control " name="rtn " required placeholder="Direccion empresa ">
                         </div>
                     </div>
-
+                </div>
+                <div *ngIf="mensaje " class="text-danger ">
+                    *Todos los campos son obligatorios.
                 </div>
                 <div class="mb-5 ">
-                    <input type="submit" value="Guardar" class="btn btn-primary mb-3" style="float:right">
+                    <input type="submit" value="Guardar " class="btn btn-primary mb-3 " style="float:right ">
                 </div>
             </form>
         </div>

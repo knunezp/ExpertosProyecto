@@ -1,33 +1,14 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 col-sm-12 col-md-12">
-            <app-menu></app-menu>
+        <div class="col-12 col-sm-12 col-md-12" style="padding: 0px;">
+            <app-menu-v></app-menu-v>
         </div>
-        <div class="col-10 col-sm-4 col-md-4">
-            <ng-sidebar-container>
-                <ng-sidebar [opened]="opened ">
-                    <ul class="menu nav flex-column ">
-                        <li class="nav-item " routerLinkActive="active ">
-                            <a class="nav-link active text-light " [routerLink]="[ '/admin'] ">Inicio</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link text-light " [routerLink]="[ '/admin'] ">Pagos</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link text-light " [routerLink]="[ '/admin'] ">Usuarios</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link text-light " [routerLink]="[ '/admin'] ">Planes</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link text-light " [routerLink]="[ '/admin'] ">Plantillas</a>
-                        </li>
-                    </ul>
-                </ng-sidebar>
-            </ng-sidebar-container>
+        <div class="col-10 col-sm-4 col-md-4" style="padding: 0px;">
+            <app-menu></app-menu>
         </div>
         <div class="col-10 col-sm-8 col-md-8">
             <h5>Hola si funciono</h5>
+
         </div>
     </div>
 </div>

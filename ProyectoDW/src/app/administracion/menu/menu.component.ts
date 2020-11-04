@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuAdminService } from './../../servicios/menu-admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,12 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  opened=false;
-  constructor() { }
+
+  constructor(public menuAdmin: MenuAdminService,private router: Router) { }
 
   ngOnInit(): void {
   }
-  toggleSidebar(){
-    this.opened=!this.opened;
-  }
+
 }

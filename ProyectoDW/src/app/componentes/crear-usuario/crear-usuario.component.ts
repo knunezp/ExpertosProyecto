@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { NgForm,  FormControl, Validators } from '@angular/forms';
 
 //import Swal from 'sweetalert2';
-declare let $: any;
 
+declare let $: any;
 
 @Component({
 
@@ -12,31 +12,37 @@ declare let $: any;
   styles: [],
 })
 export class CrearUsuarioComponent implements OnInit {
-  usuarioEmpresa: boolean = false;
 
+  usuarioEmpresa: boolean = false;
+  mensaje:boolean=false;
+  prueba: string = "";
   empresa: string = "";
+
   usuario = {
     nombres: '',
     apellidos: '',
-    correo:'',
-    contrasenia:'',
-    tipoUsuario:'',
-    nombreEmpresa:'',
-    rtn:'',
-    telefonoE:'',
-    direccionE:''
+    correo: '',
+    contrasenia: '',
+    tipoUsuario: '',
+    nombreEmpresa: '',
+    rtn: '',
+    telefonoE: '',
+    direccionE: ''
   };
 
-  constructor() {}
+
+  constructor() {
+  }
 
   ngOnInit(): void {}
 
   mostraEmpresa() {
-    if (this.usuarioEmpresa==false) {
+    if (this.usuarioEmpresa == false) {
       this.usuarioEmpresa = true;
       //console.log(this.usuarioEmpresa);
     }
   }
+
 
   ocultarEmpresa() {
     if (this.usuarioEmpresa) {
@@ -44,10 +50,13 @@ export class CrearUsuarioComponent implements OnInit {
       //console.log(this.usuarioEmpresa);
     }
   }
-
+  /*Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])*/
   //crear usuario
   nuevoUsuario(f: NgForm) {
+    
+    console.log(f.form);
     if (f.invalid) {
+      this.mensaje=true;
       console.log(f.value);
       /*const Toast = Swal.mixin({
         toast: true,

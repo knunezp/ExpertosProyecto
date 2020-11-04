@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuAdminService } from './../../servicios/menu-admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -6,15 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  
-  opened=true;
-  constructor() { }
+
+
+  constructor(public menuAdmin: MenuAdminService,private router: Router) { }
 
   ngOnInit(): void {
     window.scrollTo(0,0);
-  }
-  toggleSidebar(){
-    this.opened=!this.opened;
   }
 
 }

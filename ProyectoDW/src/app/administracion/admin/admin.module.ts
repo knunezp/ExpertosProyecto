@@ -7,11 +7,14 @@ import { AdminComponent } from './admin.component';
 import { FormsModule } from '@angular/forms';
 import {SidebarModule} from 'ng-sidebar';
 import { MenuComponent } from '../menu/menu.component';
+import { MenuVComponent } from '../menu-v/menu-v.component';
+
 
 @NgModule({
   declarations: [
     AdminComponent,
-    MenuComponent
+    MenuComponent,
+    MenuVComponent
   ],
   imports: [
     CommonModule,

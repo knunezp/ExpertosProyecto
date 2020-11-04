@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../../../courseAngular/src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { resolve } from 'dns';
 
-//const URL=environment.url;
+
+const URL=environment.url;
 
 
 @Injectable({
@@ -11,7 +11,8 @@ import { resolve } from 'dns';
 })
 export class UsuarioService {
   autentificado = false;
-  token = false;
+  token :string=null;
+  
   constructor(private http: HttpClient) {}
 
 

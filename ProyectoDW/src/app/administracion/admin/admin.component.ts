@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 export class AdminComponent implements OnInit {
 
 
-  constructor(public menuAdmin: MenuAdminService,private router: Router) { }
+  constructor(public menuAdmin: MenuAdminService,private router: Router) {
+    this.menuAdmin.inicio=true;
+  }
 
   ngOnInit(): void {
     window.scrollTo(0,0);

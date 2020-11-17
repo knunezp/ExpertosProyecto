@@ -3,12 +3,14 @@
         <div class="col-12 col-sm-12 col-md-12" style="padding: 0px;">
             <app-menu-v></app-menu-v>
         </div>
-        <div class="col-10 col-sm-4 col-md-4" style="padding: 0px;">
+        <div class="col-sm-4 col-md-4" style="padding: 0px;">
             <app-menu></app-menu>
         </div>
-        <div class="col-10 col-sm-8 col-md-8">
-            <h5>Hola si funciono</h5>
-
+        <div class="col-auto mt-5">
+            <h5 class="text-center" style="color:blue">Panel de Administracion</h5>
+            <app-usuarios *ngIf="menuAdmin.usuarios"></app-usuarios>
+            <app-pagos *ngIf="menuAdmin.pagos"></app-pagos>
+            <app-plantilla *ngIf="menuAdmin.plantillas"></app-plantilla>
         </div>
     </div>
 </div>

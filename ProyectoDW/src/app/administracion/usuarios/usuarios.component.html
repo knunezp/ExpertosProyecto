@@ -1,1 +1,54 @@
-<p>usuarios works!</p>
+<div class="container-fluid">
+    <div>
+        <h4>Lista usuarios</h4>
+    </div>
+
+</div>
+<div class="container mt-5 table-responsive">
+
+    <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Website</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let group of data | paginate: { itemsPerPage: 2, currentPage: p , totalItems:total }">
+                <td>{{group.name}}</td>
+                <td>{{group.email}}</td>
+                <td>{{group.website}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = onPageChange($event)"></pagination-controls>
+</div>
+<!--[dtOptions]="dtOptions" [dtTrigger]="dtTrigger"-->
+<!--table class="table table-striped table-bordered table-hover  row-border hover" datatable [dtOptions]="dtOptions">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+                <th>Empresa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Karen Melissa</td>
+                <td>Nunez Pastrana</td>
+                <td>knuez@gmail.com</td>
+                <td>96016817</td>
+                <td>Ninguna</td>
+            </tr>
+            <tr>
+                <td>Karen Melissa</td>
+                <td>Nunez Pastrana</td>
+                <td>knuez@gmail.com</td>
+                <td>96016817</td>
+                <td>Ninguna</td>
+            </tr>
+        </tbody>
+    </table-->

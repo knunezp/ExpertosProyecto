@@ -9,12 +9,10 @@ const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const usuarioSchema = new mongoose_1.Schema({
     nombre: {
         type: String,
-        unique: true,
         required: [true, "El nombre es obligatorio"]
     },
     apellidos: {
         type: String,
-        unique: true,
         required: [true, "El apellido es obligatorio"]
     },
     correo: {
@@ -29,7 +27,6 @@ const usuarioSchema = new mongoose_1.Schema({
     },
     tipoUsuario: {
         type: String,
-        unique: true,
         required: [true, "El tipo Usuario es obligatorio"]
     }
 });

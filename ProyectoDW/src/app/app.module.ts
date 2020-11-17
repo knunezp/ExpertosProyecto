@@ -11,6 +11,11 @@ import { ModalsComponent } from './shared/modals/modals.component';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { FormsModule } from '@angular/forms';
 import {SidebarModule} from 'ng-sidebar';
+import { NgxSpinnerModule } from "ngx-spinner";
+
+
+//import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +28,9 @@ import {SidebarModule} from 'ng-sidebar';
     AppRoutingModule,
     FormsModule,
     CKEditorModule,
-    SidebarModule
+    SidebarModule,
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

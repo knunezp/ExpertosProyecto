@@ -1,5 +1,7 @@
+import { UsuarioService } from './../../servicios/usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from '../../servicios/modal.service';
+
 
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -16,12 +18,14 @@ declare let $: any;
 export class ModalsComponent implements OnInit {
 
   usuarioLogin = {
-    nombre:"Meli",
+    nombre:"Karen",
     password:"123"
   };
 
-  constructor(public modalService: ModalService,
-    private router: Router) {
+  constructor(
+    public modalService: ModalService,
+    private router: Router,
+    public usuarioService: UsuarioService) {
     this.modalService.online = false;
   }
 
@@ -38,9 +42,16 @@ export class ModalsComponent implements OnInit {
   }
 
   login(forma: NgForm){
-    console.log(forma.value);
-    if (this.usuarioLogin.nombre=='Meli' && this.usuarioLogin.password=='123') {
 
+    if (forma.invalid) {
+      this.salirLogin();
+    }
+
+    const usuarioValido=this.usuarioService.login(this.usuarioLogin.nombre, this.usuarioLogin.password);
+    console.log(forma.value);
+    if (usuarioValido) {
+    this.salirLogin();
+    this.usuarioService.autentificado=true;
     setTimeout(() => {
       $('#navbar-collapse').collapse('hide');
     }, 1000);

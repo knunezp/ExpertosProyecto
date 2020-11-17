@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+//import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
-
-const URL=environment.url;
-
+const URL = environment.url;
 
 @Injectable({
   providedIn: "root",
@@ -12,11 +11,11 @@ const URL=environment.url;
 export class UsuarioService {
   autentificado = false;
   token :string=null;
-  
+
   constructor(private http: HttpClient) {}
 
 
-  login(nombre: string; password: string) {
+  login(nombre: string, password: string) {
     const data = {nombre, password};
 
     return new Promise(resolve=>{

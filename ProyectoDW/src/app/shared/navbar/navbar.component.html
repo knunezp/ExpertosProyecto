@@ -46,36 +46,23 @@
                     <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/planes']" style="color: #fff; "><i class="fa fa-address-card-o mr-1 " aria-hidden="true "></i>Planes</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/perfilUsuario']" style="color: #fff; "><i class="fa fa-address-card-o mr-1 " aria-hidden="true "></i>Perfil</a>
+                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/perfilUsuario']" style="color: #fff; "><i class="fa fa-user-circle-o" aria-hidden="true"></i>Perfil</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                    <a (click)="logOut()" class="nav-link rounded font-weight-bold " style="color: #fff; "><i class="fa fa-address-card-o mr-1 " aria-hidden="true "></i>Salir</a>
+                    <div class="dropdown">
+                        <button class="btn btnMenu dropdown-toggle rounded-pill " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img class="rounded-pill mr-2 " src="../../../assets/user/user.png" width="30" height="30">Karen Nunez
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button">Perfil</button>
+                            <button (click)="logOut()" class="dropdown-item" type="button">Salir</button>
+                            <button class="dropdown-item" type="button">Configuracion</button>
+                        </div>
+                    </div>
                 </li>
-
             </ul>
         </div>
     </nav>
 </div>
-
-<!--Navbar ADMIN-->
-<!--div *ngIf="modalService.onlineAdmin " class="container-fluid fixed-top bgBlueNavbar mb-5 ">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light bgBlueNavbar ">
-        <a class="navbar-brand " style="color: #fff; ">MKDW</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto ">
-            </ul>
-            <ul class="navbar-nav" routerLinkActive="active">
-                <li class="nav-item ">
-                    <a class="nav-link rounded font-weight-bold " [routerLink]="[ '/admin'] " style="color: #fff; "><i class="fa fa-user-o mr-1 " aria-hidden="true "></i>Principal</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div-->
-
 
 <app-modals></app-modals>

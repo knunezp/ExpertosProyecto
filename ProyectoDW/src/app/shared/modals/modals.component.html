@@ -17,7 +17,12 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                                     </div>
-                                    <input autocomplete="off" id="focusLogin" type="text" class="form-control" [(ngModel)]="usuarioLogin.nombre" name="nombre" required>
+                                    <input autocomplete="off" id="focusLogin" type="text" class="form-control" [(ngModel)]="usuarioLogin.nombre" name="nombre" required #correo="ngModel">
+                                </div>
+                            </div>
+                            <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="text-danger">
+                                <div *ngIf="correo.errors.required" style="padding: 0px;">
+                                    Correo requirido.
                                 </div>
                             </div>
                             <div class="form-group">
@@ -26,7 +31,12 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-unlock-alt" aria-hidden="true"></i></div>
                                     </div>
-                                    <input autocomplete="off" type="text" class="form-control" [(ngModel)]="usuarioLogin.password" name="password" required>
+                                    <input autocomplete="off" type="text" class="form-control" [(ngModel)]="usuarioLogin.password" name="password" required #password="ngModel">
+                                </div>
+                            </div>
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                                <div *ngIf="password.errors.required" style="padding: 0px;">
+                                    Contraseña requirida.
                                 </div>
                             </div>
                             <div class="text-center mt-5">
@@ -38,6 +48,9 @@
                                         <input type="submit" value="Entrar" class="btn btn-info btn-block rounded-0 py-2">
                                     </div>
                                 </div>
+                            </div>
+                            <div *ngIf="mensaje" class="text-danger">
+                                *Todos los campos son obligatorios
                             </div>
                         </form>
                     </div>

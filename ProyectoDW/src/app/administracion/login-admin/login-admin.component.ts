@@ -17,6 +17,8 @@ export class LoginAdminComponent implements OnInit {
     password:""
   };
 
+  mensaje:boolean=false;
+
   constructor(
     public modalService: ModalService,
     private router: Router,
@@ -39,7 +41,7 @@ export class LoginAdminComponent implements OnInit {
   async login(forma: NgForm){
 
     if (forma.invalid) {
-      this.salirLogin();
+      this.mensaje=true;
     }
     console.log(forma.value);
     const usuarioValido=await this.usuarioService.login(this.usuarioLogin.nombre, this.usuarioLogin.password);
@@ -47,15 +49,10 @@ export class LoginAdminComponent implements OnInit {
     if (usuarioValido) {
     this.salirLogin();
     this.usuarioService.autentificado=true;
-
-
-    this.salirLogin();
     this.limpiarUsuario();
     this.router.navigateByUrl('admin');
       console.log('entro: admin',this.modalService.online);
     } else {
-
-      this.salirLogin();
       this.limpiarUsuario();
     }
   }
@@ -63,6 +60,5 @@ export class LoginAdminComponent implements OnInit {
   logOut() {
     this.usuarioService.logOut();
     this.modalService.logOut();
-
   }
 }

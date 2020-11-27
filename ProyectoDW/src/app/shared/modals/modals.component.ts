@@ -17,6 +17,8 @@ declare let $: any;
 })
 export class ModalsComponent implements OnInit {
 
+  mensaje:boolean=false;
+
   usuarioLogin = {
     nombre:"",
     password:""
@@ -44,7 +46,8 @@ export class ModalsComponent implements OnInit {
   async login(forma: NgForm){
 
     if (forma.invalid) {
-      this.salirLogin();
+      this.mensaje=true;
+      //this.salirLogin();
     }
     console.log(forma.value);
     const usuarioValido=await this.usuarioService.login(this.usuarioLogin.nombre, this.usuarioLogin.password);
@@ -55,40 +58,14 @@ export class ModalsComponent implements OnInit {
     setTimeout(() => {
       $('#navbar-collapse').collapse('hide');
     }, 1000);
-    /*const Toast = Swal.mixin({
-      toast: true,
-      position: 'top',
-      showConfirmButton: false,
-      timer: 3000,
-      customClass: {confirmButton:'back9'}
-    });
-
-    Toast.fire({
-      title: this.usuarioLogin.nombre + ' ONLINE',
-      //background:'rgb(233,233,0)',
-      icon: 'success'
-    });*/
-    this.salirLogin();
     this.limpiarUsuario();
     this.modalService.online = true;
     this.router.navigateByUrl('principal');
       console.log('entro: ',this.modalService.online);
     } else {
-      /*const Toast = Swal.mixin({
-        toast: true,
-        position: 'center',
-        showConfirmButton: false,
-        timer: 3000,
-        customClass: {confirmButton:'back9'}
-      });
 
-      Toast.fire({
-        title: 'DATOS INVALIDOS',
-        background:'rgb(233,233,0)',
-        icon: 'error'
-      });*/
       $('#navbar-collapse').collapse('hide');
-      this.salirLogin();
+      //this.salirLogin();
       this.limpiarUsuario();
     }
   }

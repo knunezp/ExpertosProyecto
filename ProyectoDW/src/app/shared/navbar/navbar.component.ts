@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuarioService } from '../../servicios/usuario.service';
 import { ModalService } from '../../servicios/modal.service';
 
 //import Swal from 'sweetalert2';
@@ -14,7 +15,9 @@ export class NavbarComponent implements OnInit {
 
   login = true;
 
-  constructor(public modalService: ModalService,private router: Router) {
+  constructor(public modalService: ModalService,
+    private router: Router,
+    public usuarioService: UsuarioService) {
   }
 
   ngOnInit(): void {
@@ -28,21 +31,9 @@ export class NavbarComponent implements OnInit {
     $('#loginModal').modal('show');
   }
 
-  logOut(){
+  logOut() {
+    this.usuarioService.logOut();
     this.cerrarNavbar();
     this.modalService.logOut();
-    /*const Toast = Swal.mixin({
-      toast: true,
-      position: 'center',
-      showConfirmButton: false,
-      timer: 3000,
-      customClass: {confirmButton:'back9'}
-    });
-
-    Toast.fire({
-      title: 'OUTLINE',
-      //background:'rgb(233,233,0)',
-      icon: 'success'
-    });*/
   }
 }

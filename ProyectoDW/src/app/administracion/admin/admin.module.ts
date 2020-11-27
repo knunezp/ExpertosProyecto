@@ -8,6 +8,7 @@ import { MenuComponent } from '../menu/menu.component';
 import { MenuVComponent } from '../menu-v/menu-v.component';
 import { UsuariosComponent } from '../usuarios/usuarios.component';
 import { PagosComponent } from '../pagos/pagos.component';
+import { BancoImgComponent } from '../banco-img/banco-img.component';
 
 import { FormsModule } from '@angular/forms';
 import {SidebarModule} from 'ng-sidebar';
@@ -23,7 +24,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MenuVComponent,
     UsuariosComponent,
     PagosComponent,
-    PlantillaComponent
+    PlantillaComponent,
+    BancoImgComponent
   ],
   imports: [
     CommonModule,

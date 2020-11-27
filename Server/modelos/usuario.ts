@@ -19,12 +19,33 @@ const usuarioSchema=new Schema({
     password:{
         type:String,
         unique:true,
-        required:[true,"El contrasenia es obligatoria"]
+        required:[true,"La contrasenia es obligatoria"]
     },
     tipoUsuario:{
         type:String,
         required:[true,"El tipo Usuario es obligatorio"]
-    }
+    },
+    paginas:{
+        type:Array
+    },
+    empresa:{
+        type:Array
+    },
+    pagos:{
+        type:Array
+    },
+    prueba: [
+        {
+            summary: String,
+            detail: String,
+            numberOfStars: Number,
+            created: { 
+                type: Date,
+                default: Date.now
+            }
+        }
+    ],
+
 });
 
 usuarioSchema.method('compararContrasena', function (password: string = ''): boolean {
@@ -42,6 +63,10 @@ interface IYo extends Document{
     correo:string;
     password:string;
     tipoUsuario:string;
+    prueba:Array<Object>;
+    paginas:Array<Object>;
+    empresa:Array<Object>;
+    pagos:Array<Object>;
     compararContrasena(password: string): boolean
 }
 

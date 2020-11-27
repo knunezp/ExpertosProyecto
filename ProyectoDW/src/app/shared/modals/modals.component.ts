@@ -18,8 +18,8 @@ declare let $: any;
 export class ModalsComponent implements OnInit {
 
   usuarioLogin = {
-    nombre:"Karen",
-    password:"123"
+    nombre:"",
+    password:""
   };
 
   constructor(
@@ -41,14 +41,14 @@ export class ModalsComponent implements OnInit {
     $('#loginModal').modal('hide');
   }
 
-  login(forma: NgForm){
+  async login(forma: NgForm){
 
     if (forma.invalid) {
       this.salirLogin();
     }
-
-    const usuarioValido=this.usuarioService.login(this.usuarioLogin.nombre, this.usuarioLogin.password);
     console.log(forma.value);
+    const usuarioValido=await this.usuarioService.login(this.usuarioLogin.nombre, this.usuarioLogin.password);
+
     if (usuarioValido) {
     this.salirLogin();
     this.usuarioService.autentificado=true;
@@ -91,5 +91,11 @@ export class ModalsComponent implements OnInit {
       this.salirLogin();
       this.limpiarUsuario();
     }
+  }
+
+  logOut() {
+    this.usuarioService.logOut();
+    this.modalService.logOut();
+
   }
 }

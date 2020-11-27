@@ -23,12 +23,32 @@ const usuarioSchema = new mongoose_1.Schema({
     password: {
         type: String,
         unique: true,
-        required: [true, "El contrasenia es obligatoria"]
+        required: [true, "La contrasenia es obligatoria"]
     },
     tipoUsuario: {
         type: String,
         required: [true, "El tipo Usuario es obligatorio"]
-    }
+    },
+    paginas: {
+        type: Array
+    },
+    empresa: {
+        type: Array
+    },
+    pagos: {
+        type: Array
+    },
+    prueba: [
+        {
+            summary: String,
+            detail: String,
+            numberOfStars: Number,
+            created: {
+                type: Date,
+                default: Date.now
+            }
+        }
+    ],
 });
 usuarioSchema.method('compararContrasena', function (password = '') {
     if (bcryptjs_1.default.compareSync(password, this.password)) {

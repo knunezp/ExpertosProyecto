@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
   constructor(public menuAdmin: MenuAdminService, private router: Router) {
   }
-  
+
   ngOnInit(): void {}
 
   inicio() {
@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
     this.menuAdmin.usuarios=false;
     this.menuAdmin.planes=false;
     this.menuAdmin.plantillas = false;
-
+    this.menuAdmin.bancoImg=false;
     }
 
   pagos() {
@@ -28,6 +28,7 @@ export class MenuComponent implements OnInit {
     this.menuAdmin.usuarios=false;
     this.menuAdmin.planes=false;
     this.menuAdmin.plantillas=false;
+    this.menuAdmin.bancoImg=false;
   }
   usuarios() {
     this.menuAdmin.usuarios=true;
@@ -35,7 +36,7 @@ export class MenuComponent implements OnInit {
     this.menuAdmin.inicio=false;
     this.menuAdmin.planes=false;
     this.menuAdmin.plantillas=false;
-
+    this.menuAdmin.bancoImg=false;
   }
   planes() {
     this.menuAdmin.planes=true;
@@ -43,6 +44,7 @@ export class MenuComponent implements OnInit {
     this.menuAdmin.usuarios=false;
     this.menuAdmin.plantillas=false;
     this.menuAdmin.pagos=false;
+    this.menuAdmin.bancoImg=false;
   }
   plantillas() {
     this.menuAdmin.plantillas=true;
@@ -50,6 +52,17 @@ export class MenuComponent implements OnInit {
     this.menuAdmin.usuarios=false;
     this.menuAdmin.planes=false;
     this.menuAdmin.pagos=false;
+    this.menuAdmin.bancoImg=false;
+  }
+
+  bancoImg(){
+    this.menuAdmin.bancoImg=true;
+    this.menuAdmin.plantillas=false;
+    this.menuAdmin.inicio=false;
+    this.menuAdmin.usuarios=false;
+    this.menuAdmin.planes=false;
+    this.menuAdmin.pagos=false;
+
   }
 
 }

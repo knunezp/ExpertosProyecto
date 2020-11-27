@@ -5,12 +5,13 @@ declare let $: any;
   providedIn: "root",
 })
 export class MenuAdminService {
-  
+
   inicio: Boolean;
   pagos: Boolean;
   usuarios: Boolean;
   planes: Boolean;
   plantillas: Boolean;
+  bancoImg: Boolean;
 
   opened = true;
   constructor() {}

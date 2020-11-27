@@ -6,7 +6,7 @@
               <img class="rounded-pill mr-2 " src="../../../assets/user/user.png" width="30" height="30">Karen Nunez
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">Perfil</button>
+                <a (click)="perfil()" class="dropdown-item font-weight-bold" [routerLink]="[ '/perfilUsuario']"><i class="fa fa-user-circle-o mr-2" aria-hidden="true"></i>Perfil</a>
                 <button (click)="logOut()" class="dropdown-item" type="button">Salir</button>
                 <button class="dropdown-item" type="button">Configuracion</button>
             </div>

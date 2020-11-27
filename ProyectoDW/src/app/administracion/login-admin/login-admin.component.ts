@@ -17,13 +17,14 @@ export class LoginAdminComponent implements OnInit {
     password:""
   };
 
-  mensaje:boolean=false;
+  mensaje:boolean;
 
   constructor(
     public modalService: ModalService,
     private router: Router,
     public usuarioService: UsuarioService) {
     this.modalService.online = false;
+    this.mensaje=false;
   }
 
   ngOnInit(): void {

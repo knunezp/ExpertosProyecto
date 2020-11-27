@@ -23,4 +23,8 @@ export class MenuVComponent implements OnInit {
     this.modalService.logOut();
   }
 
+  perfil(){
+    this.router.navigateByUrl('perfilUsuario');
+  }
+
 }

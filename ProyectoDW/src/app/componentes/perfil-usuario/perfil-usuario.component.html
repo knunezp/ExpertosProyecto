@@ -1,8 +1,26 @@
 <div class="container-fluid mt-5">
     <div class="row mt-5">
         <div class="col-sm-4 mt-5 text-center">
+            <div class="ml-3">
+                <h5 *ngIf="mostrarImagenYo">
+                    <span class="badge badge-warning text-uppercase">
+              Banco de imagenes
+    </span>
+                </h5>
+                <input (change)="seleccionImgYo($event.target.files[0])" type="file" #imgYo class="form-control-file d-none" />
+                <button *ngIf="!mostrarImagenYo" (click)="imgYo.click()" type="button" class="btn btn-outline-warning btn-lg mt-3">
+    <i class="fas fa-upload mr-2"></i>
+    <span class="badge badge-warning mb-1">Selecciona la imagen del autor</span>
+    </button>
+            </div>
+            <div class="ml-3">
+                <div *ngIf="mostrarYo" class="form-group mt-5">
+                    <img *ngIf="mostrarImagenYo" (click)="imgYo.click()" [src]="imagenSel2" class="img-fluid  mt-2" width="150" height="120">
+                </div>
+            </div>
             <h4 class="text-primary text-center">Nombre usuario</h4>
             <img src="../../../assets/user/user.png" class="w-50" style="height: 50vh">
+
         </div>
         <div class="col-sm-4 mt-5">
             <div class="form-group row">

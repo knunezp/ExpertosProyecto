@@ -1,6 +1,17 @@
 <div class="ml-3">
-    <h5 class="text-center">Galeria</h5>
-    <button (click)="abrirModal()" type="button" class="btn btn-primary mt-3">Subir Archivo</button>
+    <h5 *ngIf="mostrarImagenYo">
+        <span class="badge badge-warning text-uppercase">
+          Banco de imagenes
+</span>
+    </h5>
+    <input (change)="seleccionImgYo($event.target.files[0])" type="file" #imgYo class="form-control-file d-none" />
+    <button *ngIf="!mostrarImagenYo" (click)="imgYo.click()" type="button" class="btn btn-outline-warning btn-lg mt-3">
+<i class="fas fa-upload mr-2"></i>
+<span class="badge badge-warning mb-1">Selecciona la imagen del autor</span>
+</button>
 </div>
 <div class="ml-3">
+    <div *ngIf="mostrarYo" class="form-group mt-5">
+        <img *ngIf="mostrarImagenYo" (click)="imgYo.click()" [src]="imagenSel2" class="img-fluid  mt-2" width="150" height="120">
+    </div>
 </div>

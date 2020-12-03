@@ -47,11 +47,11 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="fa fa-user-o" aria-hidden="true"></i></div>
+                                        <div class="input-group-text">Precio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
                                     </div>
                                     <input [(ngModel)]='plan.precio' type="number" class="form-control" name="precio" required placeholder="Precio Plan" #precio="ngModel" min="0" max="100">
                                 </div>
-                                <div *ngIf="precio.invalid && (precio.dirty || precio.touched)" class="alert alert-danger">
+                                <div *ngIf="precio.invalid && (precio.dirty || precio.touched)" class="text-danger">
 
                                     <div *ngIf="precio.errors.required" style="padding: 0px;">
                                         Precio requirido.
@@ -67,11 +67,11 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-user-o" aria-hidden="true"></i></div>
+                                            <div class="input-group-text">Desripcion&nbsp;</div>
                                         </div>
                                         <input [(ngModel)]='plan.descripcion' type="text" class="form-control" name="apellido" required placeholder="descripcion" #descripcion="ngModel">
                                     </div>
-                                    <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="alert alert-danger">
+                                    <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="text-danger">
                                         <div *ngIf="descripcion.errors.required" style="padding: 0px;">
                                             Descripcion requirido.
                                         </div>
@@ -81,11 +81,11 @@
                                     <label class="sr-only">paginas</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                                            <div class="input-group-text">No Paginas</div>
                                         </div>
                                         <input [(ngModel)]='plan.paginas' type="number" class="form-control " name="paginas" required placeholder="Numero paginas " #paginas="ngModel">
                                     </div>
-                                    <div *ngIf=" (paginas.invalid && (paginas.dirty || paginas.touched)) " class="alert alert-danger ">
+                                    <div *ngIf=" (paginas.invalid && (paginas.dirty || paginas.touched)) " class="text-danger ">
                                         <div *ngIf="paginas.errors.required " style="padding: 0px; ">
                                             Paginas requirido.
                                         </div>
@@ -95,11 +95,11 @@
                                 <div class="form-group ">
                                     <div class="input-group ">
                                         <div class="input-group-prepend ">
-                                            <div class="input-group-text "><i class="fa fa-lock " aria-hidden="true "></i></div>
+                                            <div class="input-group-text ">No Productos</div>
                                         </div>
                                         <input [(ngModel)]='plan.productos' type="number" class="form-control " name="productos " required placeholder="Cantidad de productos" #productos="ngModel" min="1" max="500">
                                     </div>
-                                    <div *ngIf="productos.invalid && (productos.dirty || productos.touched) " class="alert alert-danger ">
+                                    <div *ngIf="productos.invalid && (productos.dirty || productos.touched) " class="text-danger ">
 
                                         <div *ngIf="productos.errors.required ">
                                             Cantidad de productos.
@@ -109,7 +109,7 @@
                                 <div class="form-group ">
                                     <div class="input-group ">
                                         <div class="input-group-prepend ">
-                                            <div class="input-group-text "><i class="fa fa-lock " aria-hidden="true "></i></div>
+                                            <div class="input-group-text ">Tipo Plan&nbsp;&nbsp;&nbsp;&nbsp;</div>
                                         </div>
                                         <select [(ngModel)]='plan.tipoPlan' class="form-control" name="tipoPlan" required #tipoPlan="ngModel">
                                           <option selected="true" value="mensual">Mensual</option>
@@ -118,10 +118,10 @@
                                           <option>Anual</option>
                                         </select>
                                     </div>
-                                    <div *ngIf="tipoPlan.invalid && (tipoPlan.dirty || tipoPlan.touched) " class="alert alert-danger ">
+                                    <div *ngIf="tipoPlan.invalid && (tipoPlan.dirty || tipoPlan.touched) " class="text-danger ">
 
                                         <div *ngIf="tipoPlan.errors.required ">
-                                            Cantidad de productos.
+                                            Tipo de plan.
                                         </div>
                                     </div>
                                 </div>

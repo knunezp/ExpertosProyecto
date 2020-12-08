@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginGuard } from './guards/login.guard';
+import { ProductoModule } from './componentes/producto/producto.module';
 
 const routes: Routes = [
 
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'loginAdmin', loadChildren: () =>
     import('./administracion/login-admin/login-admin.module').then(m => m.LoginAdminModule)
+  },
+  {
+    path: 'misproductos', loadChildren: () =>
+    import('./componentes/producto/producto.module').then(m => m.ProductoModule)
   },
   {path: '', pathMatch: 'full', redirectTo: 'inicio'},
   {path: '**', pathMatch: 'full', redirectTo: 'inicio'}

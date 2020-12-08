@@ -1,5 +1,6 @@
 <div class="">
     <b>Plantillas</b>
+
 </div>
 <div class="col-auto">
     <form (ngSubmit)="guardarPlantilla(forma)" #forma="ngForm" class="m-3">
@@ -87,28 +88,28 @@
             </p> <label class="form-check-label mr-5" for="inlineRadio1"><input [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color1" value="color1">
                 <button type="button" class="btn btn-primary ">Color 1</button>
                 </label>
-            <label class="form-check-label ml-3 mr-5" for="inlineRadio2"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color1" value="color2"> 
+            <label class="form-check-label ml-3 mr-5" for="inlineRadio2"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color1" value="color2">
               <button type="button" class="btn btn-secondary ml-2 ">Color 2</button>
             </label>
-            <label class="form-check-label ml-3 mr-5" for="inlineRadio3"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color1" value="color3"> 
+            <label class="form-check-label ml-3 mr-5" for="inlineRadio3"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color1" value="color3">
               <button type="button" class="btn btn-success ml-2 ">Color 3</button>
             </label>
-            <label class="form-check-label ml-3 mr-5" for="inlineRadio4"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color1" value="color4"> 
+            <label class="form-check-label ml-3 mr-5" for="inlineRadio4"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color1" value="color4">
               <button type="button" class="btn btn-danger ml-2 ">Color 4</button>
             </label>
 
         </div>
         <div class="form-group mt-2 ">
-            <label class="form-check-label  mr-5" for="inlineRadio5"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color5" value="color5"> 
+            <label class="form-check-label  mr-5" for="inlineRadio5"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color5" value="color5">
             <button type="button" class="btn btn-warning ml-2 ">Color 5</button>
           </label>
-            <label class="form-check-label ml-3 mr-5" for="inlineRadio6"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color6" value="color6"> 
+            <label class="form-check-label ml-3 mr-5" for="inlineRadio6"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color6" value="color6">
             <button type="button" class="btn btn-info ml-2 ">Color 6</button>
           </label>
-            <label class="form-check-label ml-3 mr-5" for="inlineRadio7"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color7" value="color7"> 
+            <label class="form-check-label ml-3 mr-5" for="inlineRadio7"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color7" value="color7">
             <button type="button" class="btn btn-light ml-2 ">Color 7</button>
           </label>
-            <label class="form-check-label ml-3 mr-5" for="inlineRadio8"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color8" value="color8"> 
+            <label class="form-check-label ml-3 mr-5" for="inlineRadio8"><input  [(ngModel)]='plantilla.color' class="form-check-input" type="radio" name="radioColor" id="color8" value="color8">
             <button type="button" class="btn btn-dark ml-2 ">Color 8</button>
           </label>
         </div>
@@ -162,12 +163,11 @@
         </div>
     </form>
 </div>
-<p>
-    Start editing to see some magic happen :)
-</p>
 
-
-<a href='javascript:void(0)' (click)='agregar()'>Agregar</a>
-
-
-<div id='addDevice'></div>
+<div class="mt-3 mb-5">
+    <p>
+        Plantilla creada :)
+    </p>
+    <a href='javascript:void(0)' class="mb-5" (click)='agregar()'>Agregar</a>
+    <div id='addDevice' class="mb-5"></div>
+</div>

@@ -18,7 +18,6 @@ const usuarioSchema=new Schema({
     },
     password:{
         type:String,
-        unique:true,
         required:[true,"La contrasenia es obligatoria"]
     },
     tipoUsuario:{
@@ -33,18 +32,7 @@ const usuarioSchema=new Schema({
     },
     pagos:{
         type:Array
-    },
-    prueba: [
-        {
-            summary: String,
-            detail: String,
-            numberOfStars: Number,
-            created: { 
-                type: Date,
-                default: Date.now
-            }
-        }
-    ],
+    }
 
 });
 
@@ -63,7 +51,6 @@ interface IYo extends Document{
     correo:string;
     password:string;
     tipoUsuario:string;
-    prueba:Array<Object>;
     paginas:Array<Object>;
     empresa:Array<Object>;
     pagos:Array<Object>;

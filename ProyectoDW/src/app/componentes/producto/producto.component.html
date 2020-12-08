@@ -1,0 +1,107 @@
+<div class="container-fluid mt-5">
+    <div class="row mt-5">
+        <div class="mt-3 ml-5">
+            <b (click)="abrirModal(modalProducto)" class="btn btn-primary text-center ">Añadir Producto</b>
+
+        </div>
+    </div>
+</div>
+
+<!--modal detalle app-->
+<ng-template #modalProducto let-modal>
+
+
+    <div class="modal-content ">
+        <div class="alert alert-primary text-capitalize text-center" style="padding-bottom:0px">
+            <h5>Nuevos productos</h5>
+        </div>
+        <div class="modal-body" style="padding-top: 0px">
+            <div class="row ml-2 mr-2" style="padding-top: 0px">
+                <form (ngSubmit)="nuevoUsuario(f)" #f="ngForm" class="">
+
+                    <div class="form-group">
+                        <label class="sr-only">Usuario</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Nombre producto</div>
+                            </div>
+                            <input [(ngModel)]='usuario.nombres' type="text" class="form-control" name="nombre" required placeholder="Nombre" #nombre="ngModel">
+                        </div>
+                        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+
+                            <div *ngIf="nombre.errors.required" style="padding: 0px;">
+                                Nombre producto requirido.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Descripcion</div>
+                            </div>
+                            <input [(ngModel)]='usuario.descripcion' type="text" class="form-control" name="descripcion" required placeholder="Descripcion" #descripcion="ngModel">
+                        </div>
+                        <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="alert alert-danger">
+                            <div *ngIf="descripcion.errors.required" style="padding: 0px;">
+                                Descripcion requirido.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Precio</div>
+                            </div>
+                            <input [(ngModel)]='usuario.precio' type="number" class="form-control " name="precio" required placeholder="precio " #precio="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" email>
+                        </div>
+                        <div *ngIf=" (precio.invalid && (precio.dirty || precio.touched)) " class="alert alert-danger mb-3">
+                            <div *ngIf="precio.errors.required " style="padding: 0px; ">
+                                Precio requirido.
+                            </div>
+                        </div>
+
+                    </div>
+                    <b>Elegir moneda</b>
+                    <div class="form-check form-check-inline ml-3">
+                        <label class="form-check-label" for="radioMoneda"><input  [(ngModel)]='usuario.moneda' class="form-check-input" type="radio" name="radioMoneda" id="inlineRadio1" value="Lempiras"> Lempiras
+                    </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label" for="radioMoneda"><input  [(ngModel)]='usuario.moneda' class="form-check-input" type="radio" name="radioMoneda" id="inlineRadio3" value="Dolar"> Dolar
+                  </label>
+                    </div>
+                    <div class="ml-3">
+                        <h5 *ngIf="mostrarImagenYo">
+                            <span class="badge badge-primary text-uppercase">
+                            Imagen Producto
+                  </span>
+                        </h5>
+                        <input (change)="seleccionImgYo($event.target.files[0])" type="file" #imgYo class="form-control-file d-none" />
+                        <button *ngIf="!mostrarImagenYo" (click)="imgYo.click()" type="button" class="btn btn-outline-primary btn-lg mt-3">
+                  <i class="fas fa-upload mr-2"></i>
+                  <span class="badge badge-primary mb-1">Selecciona la imagen del producto</span>
+                  </button>
+                    </div>
+                    <div class="ml-3">
+                        <div *ngIf="mostrarYo" class="form-group mt-1">
+                            <img *ngIf="mostrarImagenYo" (click)="imgYo.click()" [src]="imagenSel2" class="img-fluid  mt-1" width="100" height="120">
+                        </div>
+                    </div>
+                    <div *ngIf="mensaje" class="text-danger ">
+                        *Todos los campos son obligatorios.
+                    </div>
+                    <div class="mb-5 ">
+                        <hr>
+                        <input type="submit" value="Guardar" class="btn btn-primary mb-3 mt-1 ml-2 " style="float:right ">
+                        <button (click)="modal.close( 'Boton Cerrar') " type="button" class="btn btn-success mb-3 mt-1 ml-2 " data-dismiss="modal " style="float:right ">Cerrar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<!--modal detalle app-->
+<ng-template #modalPrueba let-modal>
+</ng-template>

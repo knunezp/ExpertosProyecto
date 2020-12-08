@@ -5,8 +5,6 @@ import bcrypt from 'bcryptjs';
 import Token from "../clases/token";
 import { verificarToken } from "../middelwares/autentificacion";
 
-
-
 const usuarioRutas=Router();
 
 // Crear Usuario
@@ -17,6 +15,9 @@ usuarioRutas.post("/crear", (req: Request, res: Response) => {
         password: bcrypt.hashSync(req.body.password, 10),
         correo:req.body.correo,
         tipoUsuario:req.body.tipoUsuario,
+        paginas:req.body.paginas,
+        empresa:req.body.empresa,
+        pagos:req.body.pagos,
     };
 
   // Grabar usuario en Base de Datos

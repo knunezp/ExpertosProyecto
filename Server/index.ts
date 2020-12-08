@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import cors from 'cors';
 
 import usuarioRutas from './rutas/usuario';
+import plantillaRutas from './rutas/plantillas';
 
 const server =new Server();
 
@@ -20,6 +21,7 @@ server.app.use(fileupload());
 
 //rutas
 server.app.use('/usuario',usuarioRutas);
+server.app.use('/plantilla',plantillaRutas);
 
 
 // Conectar Base de Datos

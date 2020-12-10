@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PlanService } from '../../servicios/plan.service';
+import { Router } from '@angular/router';
+import { faPlus,faStar,faPaperPlane,faCheck} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-planes',
@@ -6,18 +9,36 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class PlanesComponent implements OnInit {
+  faCheck=faCheck;
+
+  planes:any=[];
 
 
-  public data = [
-    {precio: 0.0, fechaFacturacion: 'No sera facturado hoy', opcion:'Cancele en cualquier momento antes de que expire su prueba gratis',paginas:'Crea 3 paginas gratis',cantidadProductos:'En cada pagina podras ofrecer 20 productos',tipo:'mensual'},
-    {precio: 10.0, fechaFacturacion: 'No sera facturado hoy', opcion:'Cancele en cualquier momento',paginas:'Crea 8 paginas',cantidadProductos:'En cada pagina podras ofrecer 40 productos',tipo:'mensual'},
-    {precio: 15.0, fechaFacturacion: 'No sera facturado hoy', opcion:'Cancele en cualquier momento',paginas:'Crea 10 paginas',cantidadProductos:'En cada pagina podras ofrecer 60 productos',tipo:'mensual'},
-    {precio: 20.0, fechaFacturacion: 'No sera facturado hoy', opcion:'Cancele en cualquier momento',paginas:'Crea 20 paginas',cantidadProductos:'En cada pagina podras ofrecer 100 productos',tipo:'mensual'},
-];
-
-  constructor() { }
+  constructor(private planService:PlanService,
+    private router: Router) { }
 
   ngOnInit(): void {
+
+    this.planService.plan=false;
+
+    //obtener todos los planes
+    this.planService.obtenerPlan().subscribe(
+      res=>{
+        this.planes = res;
+        console.log("planes: ", this.planes);
+      },
+      error=>{
+        console.log(error);
+      }
+    );
   }
+
+  //mostrar opcion de spago
+  mostrarPlan(planE: any) {
+    this.planService.planSeleccionado = planE;
+    this.planService.plan= true;
+    this.router.navigateByUrl('pago');
+  }
+
 
 }

@@ -1,16 +1,16 @@
 import path from 'path';
 import fs from 'fs';
 
-export default class FileSystemGaleria {
+export default class FileSystemUsuario {
 
     constructor() { }
 
-    guardarImagenGaleria(file: any, nombre: string) {
+    guardarImagenUsuario(file: any, nombre: string) {
 
         return new Promise((resolve, reject) => {
 
             // Crear carpeta
-            const path = this.crearCarpetaGaleria(nombre);
+            const path = this.crearCarpetaUsuario(nombre);
 
             // Nombre del archivo
             const nombreArchivo = file.name;
@@ -27,22 +27,22 @@ export default class FileSystemGaleria {
         });
     }
 
-    private crearCarpetaGaleria(nombre: string) {
+    private crearCarpetaUsuario(nombre: string) {
 
-        const pathGaleria = path.resolve(__dirname, '../uploads', nombre);
+        const pathYo = path.resolve(__dirname, '../uploads', nombre);
 
-        const existe = fs.existsSync(pathGaleria);
+        const existe = fs.existsSync(pathYo);
 
         if (!existe) {
-            fs.mkdirSync(pathGaleria);
+            fs.mkdirSync(pathYo);
         }
 
-        return pathGaleria;
+        return pathYo;
     }
 
     getImgUrl(img: string) {
 
-        const pathImagen = path.resolve(__dirname, '../uploads', 'Proyecto', img);
+        const pathImagen = path.resolve(__dirname, '../uploads', 'Usuario', img);
         return pathImagen;
     }
 }

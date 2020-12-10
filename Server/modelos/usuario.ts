@@ -1,39 +1,43 @@
 import { Schema, model,Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-const usuarioSchema=new Schema({
-
-    nombre:{
-        type:String,
-        required:[true,"El nombre es obligatorio"]
-    },
-    apellidos:{
-        type:String,
-        required:[true,"El apellido es obligatorio"]
-    },
-    correo:{
-        type:String,
-        unique:true,
-        required:[true,"El correo es obligatorio"]
-    },
-    password:{
-        type:String,
-        required:[true,"La contrasenia es obligatoria"]
-    },
-    tipoUsuario:{
-        type:String,
-        required:[true,"El tipo Usuario es obligatorio"]
-    },
-    paginas:{
-        type:Array
-    },
-    empresa:{
-        type:Array
-    },
-    pagos:{
-        type:Array
-    }
-
+const usuarioSchema = new Schema({
+  nombre: {
+    type: String,
+    required: [true, "El nombre es obligatorio"],
+  },
+  apellidos: {
+    type: String,
+    required: [true, "El apellido es obligatorio"],
+  },
+  correo: {
+    type: String,
+    unique: true,
+    required: [true, "El correo es obligatorio"],
+  },
+  password: {
+    type: String,
+    required: [true, "La contrasenia es obligatoria"],
+  },
+  tipoUsuario: {
+    type: String,
+    required: [true, "El tipo Usuario es obligatorio"],
+  },
+  paginas: {
+    type: Array,
+  },
+  empresa: {
+    type: Array,
+  },
+  pagos: {
+    type: Array,
+  },
+  imgUsuario: {
+    type: String,
+  },
+  producto: {
+    type: Array,
+  },
 });
 
 usuarioSchema.method('compararContrasena', function (password: string = ''): boolean {
@@ -45,7 +49,7 @@ usuarioSchema.method('compararContrasena', function (password: string = ''): boo
     }
 });
 
-interface IYo extends Document{
+interface usuario extends Document{
     nombre:string;
     apellidos:string;
     correo:string;
@@ -54,7 +58,9 @@ interface IYo extends Document{
     paginas:Array<Object>;
     empresa:Array<Object>;
     pagos:Array<Object>;
+    imgUsuario:string
+    producto:Array<Object>;    
     compararContrasena(password: string): boolean
 }
 
-export const Usuario=model<IYo>('Usuario',usuarioSchema)
+export const Usuario=model<usuario>('Usuario',usuarioSchema)

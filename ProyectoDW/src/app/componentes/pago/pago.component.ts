@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PlanService } from './../../servicios/plan.service';
+
 
 @Component({
   selector: 'app-pago',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagoComponent implements OnInit {
 
-  constructor() { }
+  constructor(public planService: PlanService) { }
 
   ngOnInit(): void {
     window.scrollTo(0,0);

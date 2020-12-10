@@ -9,46 +9,40 @@ const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const usuarioSchema = new mongoose_1.Schema({
     nombre: {
         type: String,
-        required: [true, "El nombre es obligatorio"]
+        required: [true, "El nombre es obligatorio"],
     },
     apellidos: {
         type: String,
-        required: [true, "El apellido es obligatorio"]
+        required: [true, "El apellido es obligatorio"],
     },
     correo: {
         type: String,
         unique: true,
-        required: [true, "El correo es obligatorio"]
+        required: [true, "El correo es obligatorio"],
     },
     password: {
         type: String,
-        unique: true,
-        required: [true, "La contrasenia es obligatoria"]
+        required: [true, "La contrasenia es obligatoria"],
     },
     tipoUsuario: {
         type: String,
-        required: [true, "El tipo Usuario es obligatorio"]
+        required: [true, "El tipo Usuario es obligatorio"],
     },
     paginas: {
-        type: Array
+        type: Array,
     },
     empresa: {
-        type: Array
+        type: Array,
     },
     pagos: {
-        type: Array
+        type: Array,
     },
-    prueba: [
-        {
-            summary: String,
-            detail: String,
-            numberOfStars: Number,
-            created: {
-                type: Date,
-                default: Date.now
-            }
-        }
-    ],
+    imgUsuario: {
+        type: String,
+    },
+    producto: {
+        type: Array,
+    },
 });
 usuarioSchema.method('compararContrasena', function (password = '') {
     if (bcryptjs_1.default.compareSync(password, this.password)) {

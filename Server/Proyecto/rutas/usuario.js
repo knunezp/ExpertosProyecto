@@ -26,6 +26,11 @@ usuarioRutas.post("/crear", (req, res) => {
         password: bcryptjs_1.default.hashSync(req.body.password, 10),
         correo: req.body.correo,
         tipoUsuario: req.body.tipoUsuario,
+        paginas: req.body.paginas,
+        empresa: req.body.empresa,
+        pagos: req.body.pagos,
+        imgUsuario: req.body.imgUsuario,
+        producto: req.body.producto
     };
     // Grabar usuario en Base de Datos
     usuario_1.Usuario.create(usuario)
@@ -45,7 +50,7 @@ usuarioRutas.post("/crear", (req, res) => {
 // Login
 usuarioRutas.post('/entrar', (req, res) => {
     const body = req.body;
-    usuario_1.Usuario.findOne({ nombre: body.nombre }, (err, usuarioDB) => {
+    usuario_1.Usuario.findOne({ correo: body.correo }, (err, usuarioDB) => {
         if (err)
             throw err;
         if (!usuarioDB) {
@@ -57,7 +62,7 @@ usuarioRutas.post('/entrar', (req, res) => {
         if (usuarioDB.compararContrasena(body.password)) {
             const miToken = token_1.default.getToken({
                 _id: usuarioDB._id,
-                nombre: usuarioDB.nombre,
+                correo: usuarioDB.correo,
                 password: usuarioDB.password
             });
             res.json({
@@ -77,7 +82,15 @@ usuarioRutas.post('/entrar', (req, res) => {
 usuarioRutas.post('/update', autentificacion_1.verificarToken, (req, res) => {
     const usuario = {
         nombre: req.body.nombre || req.usuario.nombre,
-        password: req.body.password || req.usuario.password
+        apellidos: req.body.apellidos || req.usuario.apellidos,
+        password: req.body.password || req.usuario.password,
+        correo: req.body.correo || req.usuario.correo,
+        tipoUsuario: req.body.tipoUsuario || req.usuario.tipoUsuario,
+        paginas: req.body.paginas || req.usuario.paginas,
+        empresa: req.body.empresa || req.usuario.empresa,
+        pagos: req.body.pagos || req.usuario.pagos,
+        imgUsuario: req.body.imgUsuario || req.usuario.imgUsuario,
+        producto: req.body.producto || req.usuario.producto
     };
     usuario_1.Usuario.findByIdAndUpdate(req.usuario._id, usuario, { new: true }, (err, userDB) => {
         if (err)
@@ -90,7 +103,7 @@ usuarioRutas.post('/update', autentificacion_1.verificarToken, (req, res) => {
         }
         const miToken = token_1.default.getToken({
             _id: userDB._id,
-            nombre: userDB.nombre,
+            correo: userDB.nombre,
             password: userDB.password,
         });
         res.json({

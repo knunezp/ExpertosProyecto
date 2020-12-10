@@ -18,13 +18,17 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ImagenProductoPipe } from './pipes/imagen-producto.pipe';
+import { ImagenUsuarioPipe } from './pipes/imagen-usuario.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    ModalsComponent
+    ModalsComponent,
+    ImagenProductoPipe,
+    ImagenUsuarioPipe
   ],
   imports: [
     BrowserModule,

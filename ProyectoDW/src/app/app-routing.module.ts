@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginGuard } from './guards/login.guard';
 import { ProductoModule } from './componentes/producto/producto.module';
+import { PlanGuard } from './guards/plan.guard';
 
 const routes: Routes = [
 
@@ -26,7 +27,7 @@ const routes: Routes = [
   {
     path: 'pago', loadChildren: () =>
     import('./componentes/pago/pago.module').then(m => m.PagoModule),
-    canActivate: [LoginGuard]
+    canActivate: [PlanGuard]
   },
   {
     path: 'principal', loadChildren: () =>

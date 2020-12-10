@@ -18,6 +18,8 @@ usuarioRutas.post("/crear", (req: Request, res: Response) => {
         paginas:req.body.paginas,
         empresa:req.body.empresa,
         pagos:req.body.pagos,
+        imgUsuario:req.body.imgUsuario,
+        producto:req.body.producto
     };
 
   // Grabar usuario en Base de Datos
@@ -40,7 +42,7 @@ usuarioRutas.post("/crear", (req: Request, res: Response) => {
 usuarioRutas.post('/entrar', (req: Request, res: Response) => {
     const body = req.body;
 
-    Usuario.findOne({ nombre: body.nombre }, (err, usuarioDB) => {
+    Usuario.findOne({ correo: body.correo }, (err, usuarioDB) => {
         if (err) throw err;
         if (!usuarioDB) {
             return res.json({
@@ -54,7 +56,7 @@ usuarioRutas.post('/entrar', (req: Request, res: Response) => {
             const miToken = Token.getToken({
 
                 _id: usuarioDB._id,
-                nombre: usuarioDB.nombre,
+                correo: usuarioDB.correo,
                 password: usuarioDB.password
 
             });
@@ -78,8 +80,16 @@ usuarioRutas.post('/entrar', (req: Request, res: Response) => {
 usuarioRutas.post('/update', verificarToken, (req: any, res: Response) => {
 
     const usuario = {
-        nombre: req.body.nombre || req.usuario.nombre,
-        password: req.body.password || req.usuario.password
+        nombre:req.body.nombre || req.usuario.nombre,
+        apellidos:req.body.apellidos || req.usuario.apellidos,
+        password:req.body.password || req.usuario.password,
+        correo:req.body.correo || req.usuario.correo,
+        tipoUsuario:req.body.tipoUsuario || req.usuario.tipoUsuario,
+        paginas:req.body.paginas || req.usuario.paginas,
+        empresa:req.body.empresa || req.usuario.empresa,
+        pagos:req.body.pagos || req.usuario.pagos,
+        imgUsuario:req.body.imgUsuario || req.usuario.imgUsuario,
+        producto:req.body.producto || req.usuario.producto
     }
 
     Usuario.findByIdAndUpdate(
@@ -96,7 +106,7 @@ usuarioRutas.post('/update', verificarToken, (req: any, res: Response) => {
         }
         const miToken = Token.getToken({
             _id: userDB._id,
-            nombre: userDB.nombre,
+            correo: userDB.nombre,
             password: userDB.password,
         });
         res.json({

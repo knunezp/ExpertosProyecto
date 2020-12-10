@@ -6,7 +6,9 @@ import cors from 'cors';
 
 import usuarioRutas from './rutas/usuario';
 import plantillaRutas from './rutas/plantillas';
+import planRutas from './rutas/plan';
 
+//server
 const server =new Server();
 
 // Body Parser
@@ -22,7 +24,7 @@ server.app.use(fileupload());
 //rutas
 server.app.use('/usuario',usuarioRutas);
 server.app.use('/plantilla',plantillaRutas);
-
+server.app.use('/plan',planRutas);
 
 // Conectar Base de Datos
 mongoose.connect(

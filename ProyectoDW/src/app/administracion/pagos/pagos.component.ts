@@ -4,6 +4,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { NgForm,  FormControl, Validators } from '@angular/forms';
 
 import { HttpClient } from '@angular/common/http';
+import { PlanService } from 'src/app/servicios/plan.service';
 
 declare let $: any;
 
@@ -24,13 +25,14 @@ export class PagosComponent implements OnInit {
   prueba: string = "";
   empresa: string = "";
 
+  planes:any=[];
+
   plan = {
     precio: 0,
-    fechaFacturacion:'No sera facturado hoy',
-    descripcion: '',
+    descripcion: 'No sera facturado hoy',
     paginas: 1,
-    productos: 1,
-    tipoPlan: ''
+    cantidadProductos: 1,
+    tipo: ''
   };
 
   public data = [
@@ -42,13 +44,29 @@ export class PagosComponent implements OnInit {
 
 
 
-  public constructor(private http:HttpClient,private spinner: NgxSpinnerService) {
+  public constructor(
+    private http:HttpClient,
+    private spinner: NgxSpinnerService,
+    private planService:PlanService) {
 
   }
 
   ngOnInit():void {
-    this.total=this.data.length;
-    console.log(this.data.length);
+
+    //obtener todos los planes
+    this.planService.obtenerPlan().subscribe(
+      res=>{
+        this.planes = res;
+        console.log("planes: ", this.planes);
+      },
+      error=>{
+        console.log(error);
+      }
+    );
+
+    this.total=this.planes.length;
+    console.log(this.planes.length);
+
   }
 
   onPageChange(event){
@@ -58,7 +76,7 @@ export class PagosComponent implements OnInit {
     setTimeout(() => {
        /** spinner ends after 5 seconds */
       this.spinner.hide();
-    }, 3000);
+    }, 1000);
   }
 
   cerrarModal(){
@@ -79,9 +97,20 @@ export class PagosComponent implements OnInit {
     } else {
       //$('#contacto').modal('hide');
       console.log('plan registrado  ',f.value);
+
+      this.planService.crearPlan(this.plan);
+
       this.cerrarModal();
-      this.data.push(f.value);
-      console.log(this.data);
+      //this.data.push(f.value);
+      console.log('Plan ',this.plan);
     }
+  }
+
+  eliminarPlan(plan){
+    console.log('eliminar',plan);
+  }
+
+  editarPlan(planEditar){
+    console.log('editar',planEditar);
   }
 }

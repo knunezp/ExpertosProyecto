@@ -9,7 +9,7 @@
         <thead class="thead-dark">
             <tr>
                 <th>Precio</th>
-                <th>Fecha facturacion</th>
+                <th>Descripcion</th>
                 <th>No pag. a crear</th>
                 <th>No Productos por pag.</th>
                 <th>Tipo Plan</th>
@@ -18,14 +18,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let group of data | paginate: { itemsPerPage: 2, currentPage: p , totalItems:total }">
-                <td>{{group.precio}}</td>
+            <tr *ngFor="let group of planes.plan | paginate: { itemsPerPage: 2, currentPage: p , totalItems:total }">
+                <td>${{group.precio}}.00</td>
                 <td>{{group.descripcion}}</td>
                 <td>{{group.paginas}}</td>
-                <td>{{group.productos}}</td>
+                <td>{{group.cantidadProductos}}</td>
                 <td>{{group.tipo}}</td>
-                <td><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i></td>
-                <td><i class="fa fa-trash-o text-danger" aria-hidden="true"></i></td>
+                <td><i (click)="editarPlan(group)" class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i></td>
+                <td><i (click)="eliminarPlan(group._id)" class="fa fa-trash-o text-danger" aria-hidden="true"></i></td>
             </tr>
         </tbody>
     </table>
@@ -97,7 +97,7 @@
                                         <div class="input-group-prepend ">
                                             <div class="input-group-text ">No Productos</div>
                                         </div>
-                                        <input [(ngModel)]='plan.productos' type="number" class="form-control " name="productos " required placeholder="Cantidad de productos" #productos="ngModel" min="1" max="500">
+                                        <input [(ngModel)]='plan.cantidadProductos' type="number" class="form-control " name="productos " required placeholder="Cantidad de productos" #productos="ngModel" min="1" max="500">
                                     </div>
                                     <div *ngIf="productos.invalid && (productos.dirty || productos.touched) " class="text-danger ">
 
@@ -111,11 +111,11 @@
                                         <div class="input-group-prepend ">
                                             <div class="input-group-text ">Tipo Plan&nbsp;&nbsp;&nbsp;&nbsp;</div>
                                         </div>
-                                        <select [(ngModel)]='plan.tipoPlan' class="form-control" name="tipoPlan" required #tipoPlan="ngModel">
+                                        <select [(ngModel)]='plan.tipo' class="form-control" name="tipoPlan" required #tipoPlan="ngModel">
                                           <option selected="true" value="mensual">Mensual</option>
-                                          <option>Trimestral</option>
-                                          <option>Semestral</option>
-                                          <option>Anual</option>
+                                          <option value="trimestral">Trimestral</option>
+                                          <option value="semestral">Semestral</option>
+                                          <option value="anual">Anual</option>
                                         </select>
                                     </div>
                                     <div *ngIf="tipoPlan.invalid && (tipoPlan.dirty || tipoPlan.touched) " class="text-danger ">

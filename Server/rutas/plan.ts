@@ -7,8 +7,8 @@ const planRutas = Router();
 
 
 
-// Crear plan
-planRutas.post("/crear",verificarToken, (req: Request, res: Response) => {
+// Crear plan verificarToken,
+planRutas.post("/crear", (req: Request, res: Response) => {
     const plan = {
         precio:req.body.precio,
         descripcion:req.body.descripcion,
@@ -34,36 +34,9 @@ planRutas.post("/crear",verificarToken, (req: Request, res: Response) => {
 });
 
 
-// Crear plantilla
-planRutas.post('/', (req: any, res: Response) => {
 
-    const body = req.body;
-    const precio=req.params.precio;
-    const descripcion=req.params.descripcion;
-    const paginas=req.params.paginas;
-    const cantidadProductos=req.params.cantidadProductos;
-    const tipo=req.params.tipo;
-
-    body.body = body;
-    body.precio = precio;
-    body.descripcion = descripcion;
-    body.paginas = paginas;
-    body.cantidadProductos = cantidadProductos;
-    body.tipo = tipo;
-
-    Plan.create(body).then(PlanDB => {
-        res.json({
-            ok: true,
-            Plan: PlanDB
-        });
-    }).catch(err => {
-        res.json(err)
-    });
-
-});
-
-// Actualizar plantilla verificarToken,
-planRutas.post('/update/:id',verificarToken,  (req: any, res: Response) => {
+// Actualizar plantilla verificarToken,verificarToken,
+planRutas.post('/update/:id',  (req: any, res: Response) => {
 
     const id = req.params.id;
 

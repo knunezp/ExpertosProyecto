@@ -7,6 +7,8 @@ import cors from 'cors';
 import usuarioRutas from './rutas/usuario';
 import plantillaRutas from './rutas/plantillas';
 import planRutas from './rutas/plan';
+import galeriaRutas from './rutas/imagenGaleria';
+
 
 //server
 const server =new Server();
@@ -25,6 +27,8 @@ server.app.use(fileupload());
 server.app.use('/usuario',usuarioRutas);
 server.app.use('/plantilla',plantillaRutas);
 server.app.use('/plan',planRutas);
+server.app.use('/uploadGaleria',galeriaRutas);
+
 
 // Conectar Base de Datos
 mongoose.connect(

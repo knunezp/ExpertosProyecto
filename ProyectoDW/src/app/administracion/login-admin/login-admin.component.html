@@ -19,7 +19,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                         </div>
-                        <input autocomplete="off" id="focusLogin" type="text" class="form-control" [(ngModel)]="usuarioLogin.nombre" name="nombre" required #correo="ngModel">
+                        <input autocomplete="off" id="focusLogin" type="text" class="form-control" [(ngModel)]="usuarioLogin.correo" name="nombre" required #correo="ngModel">
                     </div>
                 </div>
                 <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="text-danger">
@@ -33,7 +33,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-unlock-alt" aria-hidden="true"></i></div>
                         </div>
-                        <input autocomplete="off" type="text" class="form-control" [(ngModel)]="usuarioLogin.password" name="password" required #password="ngModel">
+                        <input autocomplete="off" type="password" class="form-control" [(ngModel)]="usuarioLogin.password" name="password" required #password="ngModel">
                     </div>
                 </div>
                 <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">

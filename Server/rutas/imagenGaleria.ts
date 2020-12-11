@@ -18,36 +18,50 @@ galeriaRutas.post('/', verificarToken, (req: any, res: Response) => {
     body.img = file.name;
     // console.log(file);
 
-    ImagenesYo.create(body).then(imgYoDB => {
+    ImagenesGaleria.create(body).then(imgGaleriaDB => {
         res.json({
             ok: true,
-            imgYoDB
+            imgGaleriaDB
         });
 
-        fileSystemYo.guardarImagenYo(file, req.usuario.nombre);
+        fileSystemGaleria.guardarImagenGaleria(file, 'proyectoDW');
 
     }).catch(err => {
         res.json(err)
     });
 });
 
-// Mostrar imagen por URL
-galeriaRutas.get('/Federica/:img', (req: any, res: Response) => {
-
-    const img = req.params.img;
-    const pathImagen = fileSystemYo.getImgUrl(img);
-    res.sendFile(pathImagen);
-
-});
 
 // Actualizar imagen
 galeriaRutas.post('/update', verificarToken, (req: any, res: Response) => {
 
     const file = req.files.img;
-    fileSystemGaleria.guardarImg(file, req.usuario.);
+    fileSystemGaleria.guardarImagenGaleria(file, req.usuario._id);
     res.json({
         ok: true,
         mensaje: 'Imagen actualizada'
+    });
+});
+
+// Mostrar imagen por URL
+galeriaRutas.get('/ProyectoDW/:img', (req: any, res: Response) => {
+
+    const img = req.params.img;
+    const pathImagen = fileSystemGaleria.getImgUrl(img);
+    res.sendFile(pathImagen);
+
+});
+
+
+// Obtener galeria
+galeriaRutas.get('/', async (req: any, res: Response) => {
+    const img = await ImagenesGaleria.find()
+        .sort({ _id: -1 })
+        .exec();
+
+    res.json({
+        ok: true,
+        img
     });
 });
 
@@ -66,4 +80,4 @@ galeriaRutas.post('/update', verificarToken, (req: any, res: Response) => {
 //     });
 // });
 
-export default yoRutas;
+export default galeriaRutas;

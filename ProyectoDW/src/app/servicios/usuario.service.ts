@@ -25,9 +25,9 @@ export class UsuarioService {
   }
 
 
-  login(nombre: string, password: string) {
+  login(correo: string, password: string) {
 
-    const data = { nombre, password };
+    const data = { correo, password };
 
     return new Promise(resolve => {
 

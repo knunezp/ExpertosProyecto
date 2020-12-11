@@ -13,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class LoginAdminComponent implements OnInit {
 
   usuarioLogin = {
-    nombre:"",
+    correo:"",
     password:""
   };
 
@@ -31,7 +31,7 @@ export class LoginAdminComponent implements OnInit {
   }
 
   limpiarUsuario(){
-    this.usuarioLogin.nombre='';
+    this.usuarioLogin.correo='';
     this.usuarioLogin.password='';
   }
 
@@ -45,7 +45,7 @@ export class LoginAdminComponent implements OnInit {
       this.mensaje=true;
     }
     console.log(forma.value);
-    const usuarioValido=await this.usuarioService.login(this.usuarioLogin.nombre, this.usuarioLogin.password);
+    const usuarioValido=await this.usuarioService.login(this.usuarioLogin.correo, this.usuarioLogin.password);
 
     if (usuarioValido) {
     this.salirLogin();

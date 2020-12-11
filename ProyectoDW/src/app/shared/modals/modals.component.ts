@@ -20,7 +20,7 @@ export class ModalsComponent implements OnInit {
   mensaje:boolean=false;
 
   usuarioLogin = {
-    nombre:"",
+    correo:"",
     password:""
   };
 
@@ -35,7 +35,7 @@ export class ModalsComponent implements OnInit {
   }
 
   limpiarUsuario(){
-    this.usuarioLogin.nombre='';
+    this.usuarioLogin.correo='';
     this.usuarioLogin.password='';
   }
 
@@ -50,7 +50,7 @@ export class ModalsComponent implements OnInit {
       //this.salirLogin();
     }
     console.log(forma.value);
-    const usuarioValido=await this.usuarioService.login(this.usuarioLogin.nombre, this.usuarioLogin.password);
+    const usuarioValido=await this.usuarioService.login(this.usuarioLogin.correo, this.usuarioLogin.password);
 
     if (usuarioValido) {
     this.salirLogin();

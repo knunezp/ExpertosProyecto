@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { Router } from '@angular/router';
-
+import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
 
@@ -24,6 +24,10 @@ export class UsuarioService {
     this.getId();
   }
 
+  obtenerUsuario():Observable<any>{
+    console.log('obtener usuarios del servidor');
+    return this.http.get('http://localhost:3000/usuario',{});
+  }
 
   login(correo: string, password: string) {
 

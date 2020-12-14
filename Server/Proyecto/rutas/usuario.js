@@ -122,4 +122,14 @@ usuarioRutas.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* 
         user,
     });
 }));
+// Obtener usuarios
+usuarioRutas.get('/get', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const users = yield usuario_1.Usuario.find()
+        .sort({ _id: -1 })
+        .exec();
+    res.json({
+        ok: true,
+        users
+    });
+}));
 exports.default = usuarioRutas;

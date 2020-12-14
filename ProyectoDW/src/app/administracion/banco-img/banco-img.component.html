@@ -17,12 +17,10 @@
 </div>
 <!--Imagenes-->
 <div class="row">
-    <div *ngFor="let imagen of galeria.img" class="card ml-2 " style="width: 8rem; ">
-        <img src="http://localhost:3000/uploadGaleria/proyectoDW/back4.jpg" class="card-img-top " alt="... ">
-        <div class="card-body ">
-            <h5 class="card-title ">Producto x</h5>
-            <p class="card-text ">Descripcion producto.</p>
-            <a href="# " class="btn btn-primary ">Añadir a la cesta<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-        </div>
+    <b>Galeria</b>
+</div>
+<div class="row">
+    <div *ngFor="let imagen of galeria.img" class="card ml-2 ">
+        <img [src]="'http://localhost:3000/uploadGaleria/ProyectoDW/'+imagen.img" class="card-img-top " alt="... " style="width: 10rem; ">
     </div>
 </div>

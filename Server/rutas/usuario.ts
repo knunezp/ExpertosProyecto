@@ -129,4 +129,16 @@ usuarioRutas.get("/", async (req: any, res: Response) => {
     });
 });
 
+// Obtener usuarios
+usuarioRutas.get('/get', async (req: any, res: Response) => {
+    const users = await Usuario.find()
+        .sort({ _id: -1 })
+        .exec();
+
+    res.json({
+        ok: true,
+        users
+    });
+});
+
 export default usuarioRutas;

@@ -5,6 +5,7 @@ import { NgForm,  FormControl, Validators } from '@angular/forms';
 
 
 import { HttpClient } from '@angular/common/http';
+import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 declare let $: any;
 
@@ -43,15 +44,28 @@ export class UsuariosComponent implements  OnInit {
     {name: 'test4', email: 'test@gmail.com', apellidos:'prueba',tipoUsuario:'normals'},
 ];
 
+users:any=[];
 
-
-  public constructor(private http:HttpClient,private spinner: NgxSpinnerService) {
+  public constructor(private http:HttpClient,private spinner: NgxSpinnerService
+    ,private usuarioService: UsuarioService,) {
 
   }
 
   ngOnInit():void {
+
+    //obtener todos los planes
+    this.usuarioService.obtenerUsuario().subscribe(
+      res=>{
+        this.users = res;
+        console.log("users: ", this.users);
+      },
+      error=>{
+        console.log(error);
+      }
+    );
+
     this.total=this.data.length;
-    console.log(this.data.length);
+    console.log(this.users.length);
   }
 
   onPageChange(event){

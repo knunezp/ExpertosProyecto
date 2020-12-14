@@ -4,18 +4,18 @@
 <ng-sidebar-container>
     <ng-sidebar [opened]="menuAdmin.opened">
         <ul class="menu nav flex-column ">
-            <li class="nav-item " routerLinkActive="active ">
-                <a (click)="inicio()" class="nav-link active text-light " [routerLink]="[ '/admin'] ">Inicio</a>
-            </li>
+            <!--li class="nav-item " routerLinkActive="active ">
+            <a (click)="inicio()" class="nav-link active text-light " [routerLink]="[ '/admin'] ">Inicio</a>
+            </li-->
             <li class="nav-item ">
-                <a (click)="pagos()" class="nav-link text-light " [routerLink]="[ '/admin'] ">Pagos</a>
+                <a (click)="pagos()" class="nav-link text-light " [routerLink]="[ '/admin'] ">Planes</a>
             </li>
             <li class="nav-item ">
                 <a (click)="usuarios()" class="nav-link text-light " [routerLink]="[ '/admin'] ">Usuarios</a>
             </li>
-            <li class="nav-item ">
-                <a (click)="planes()" class="nav-link text-light " [routerLink]="[ '/admin'] ">Planes</a>
-            </li>
+            <!--li class="nav-item ">
+            <a (click)="planes()" class="nav-link text-light " [routerLink]="[ '/admin'] ">Planes</a>
+            </li-->
             <li class="nav-item ">
                 <a (click)="plantillas()" class="nav-link text-light " [routerLink]="[ '/admin'] ">Plantillas</a>
             </li>

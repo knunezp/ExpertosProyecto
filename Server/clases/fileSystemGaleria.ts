@@ -42,7 +42,7 @@ export default class FileSystemGaleria {
 
     getImgUrl(img: string) {
 
-        const pathImagen = path.resolve(__dirname, '../uploads', 'Proyecto', img);
+        const pathImagen = path.resolve(__dirname, '../uploads', 'ProyectoDW', img);
         return pathImagen;
     }
 }

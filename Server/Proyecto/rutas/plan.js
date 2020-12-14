@@ -10,11 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const autentificacion_1 = require("../middelwares/autentificacion");
 const planes_1 = require("../modelos/planes");
 const planRutas = express_1.Router();
-// Crear plan
-planRutas.post("/crear", autentificacion_1.verificarToken, (req, res) => {
+// Crear plan verificarToken,
+planRutas.post("/crear", (req, res) => {
     const plan = {
         precio: req.body.precio,
         descripcion: req.body.descripcion,
@@ -37,31 +36,8 @@ planRutas.post("/crear", autentificacion_1.verificarToken, (req, res) => {
         });
     });
 });
-// Crear plantilla
-planRutas.post('/', (req, res) => {
-    const body = req.body;
-    const precio = req.params.precio;
-    const descripcion = req.params.descripcion;
-    const paginas = req.params.paginas;
-    const cantidadProductos = req.params.cantidadProductos;
-    const tipo = req.params.tipo;
-    body.body = body;
-    body.precio = precio;
-    body.descripcion = descripcion;
-    body.paginas = paginas;
-    body.cantidadProductos = cantidadProductos;
-    body.tipo = tipo;
-    planes_1.Plan.create(body).then(PlanDB => {
-        res.json({
-            ok: true,
-            Plan: PlanDB
-        });
-    }).catch(err => {
-        res.json(err);
-    });
-});
-// Actualizar plantilla verificarToken,
-planRutas.post('/update/:id', autentificacion_1.verificarToken, (req, res) => {
+// Actualizar plantilla verificarToken,verificarToken,
+planRutas.post('/update/:id', (req, res) => {
     const id = req.params.id;
     const plan = {
         body: req.body,

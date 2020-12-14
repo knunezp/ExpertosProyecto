@@ -33,7 +33,7 @@ class FileSystemGaleria {
         return pathGaleria;
     }
     getImgUrl(img) {
-        const pathImagen = path_1.default.resolve(__dirname, '../uploads', 'Proyecto', img);
+        const pathImagen = path_1.default.resolve(__dirname, '../uploads', 'ProyectoDW', img);
         return pathImagen;
     }
 }
